@@ -16,9 +16,7 @@ function index() {
   }, [])
 
   return(
-    <div className="text-3xl font-bold underline">
-      kuyraira
-    </div>
+    <div>about us</div>
   )
 }
 
