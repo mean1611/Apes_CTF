@@ -10,3 +10,34 @@
     background-size: cover; /* ปรับขนาดรูปให้เต็มพื้นหลัง */
     background-repeat: no-repeat; /* ไม่ทำซ้ำภาพพื้นหลัง */
   }
+
+
+  
+.banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0; /* เปลี่ยนสีพื้นหลังตามต้องการ */
+  padding: 20px;
+}
+
+.banner-image {
+  max-width: 100%;
+  height: auto;
+  margin-right: 20px; /* เพิ่มระยะห่างระหว่างรูปภาพและข้อความ */
+}
+
+.banner-text {
+  text-align: left; /* เปลี่ยนการจัดวางข้อความตามต้องการ */
+  color: #333; /* เปลี่ยนสีข้อความตามต้องการ */
+}
+
+.banner-text h1 {
+  font-size: 24px; /* เปลี่ยนขนาดตัวอักษรของข้อความหลัก */
+  margin: 0;
+}
+
+.banner-text p {
+  font-size: 16px; /* เปลี่ยนขนาดตัวอักษรของข้อความเพิ่มเติม (ถ้ามี) */
+  margin: 5px 0;
+}

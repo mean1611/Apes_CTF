@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../components/navbar/navbar.js";
+import Banner from "../components/Banner.js";
 
 
 function index() {
@@ -19,7 +20,9 @@ function index() {
   return (
     <div>
       <Navbar />
-      
+      <Banner /> {/* ใช้ Banner ที่คุณสร้าง */}
+      {/* แสดงข้อความ Loading หรือข้อมูลที่ได้จาก API ด้านล่างนี้ */}
+      <p>{message}</p>
     </div>
   );
 }
