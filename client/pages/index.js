@@ -1,10 +1,11 @@
-import React, {useEffect,useState} from "react";
+import React, { useEffect, useState } from "react";
+import Navbar from "../components/navbar/navbar.js";
+
 
 function index() {
-
   const [message, setMessage] = useState("Loading")
 
-  useEffect(() =>{
+  useEffect(() => {
     fetch("http://localhost:8080/api/home").then(
       response => response.json()
     ).then(
@@ -15,11 +16,13 @@ function index() {
     )
   }, [])
 
-  return(
-    <div className="text-3xl font-bold underline">
-      kuyraira
+  return (
+    <div>
+      <Navbar />
+      
     </div>
-  )
+  );
 }
 
-export default index
+export default index;
+
