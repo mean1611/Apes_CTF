@@ -1,6 +1,6 @@
 generator client {
   provider = "prisma-client-js"
-  outputDirectory = "./generated"
+  // outputDirectory = "./generated"
 }
 
 datasource db {
@@ -10,7 +10,7 @@ datasource db {
 
 // กำหนดโมเดลของคุณ
 model User {
-  user_id         Int      @id @default(autoincrement())
+  user_id    Int      @id @default(autoincrement())
   username   String
   email      String   @unique
 }

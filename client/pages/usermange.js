@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar.js";
-const { PrismaClient } = require('@prisma/client');
 
+const { PrismaClient } = require('@prisma/client')
 const prisma = new PrismaClient();
 
 function Usermange() {
@@ -45,7 +45,6 @@ function Usermange() {
                 <tr key={user.id}>
                   <td>{user.username}</td>
                   <td>{user.email}</td>
-                  <td>{user.dateCreate.toString()}</td>
                 </tr>
               ))}
             </tbody>
