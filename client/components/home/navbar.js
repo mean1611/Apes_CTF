@@ -1,4 +1,6 @@
-export default function Navbar() {
+import React from "react";
+
+function Navbar() {
     return (
         <nav className="navbar bg-primary text-neutral-content fixed top-0 w-full z-10">
         <div className="flex-1 ">
@@ -38,5 +40,5 @@ export default function Navbar() {
     )
 }
 
-import React from "react";
+export default Navbar; 
 

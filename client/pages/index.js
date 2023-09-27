@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "../components/navbar/navbar.js";
-import Banner from "../components/Banner.js";
-
+import Navbar from "../components/home/navbar.js";
+import Banner from "../components/home/Banner.js";
+import Bodywhatisctf from "../components/home/bodywhatisctf.js";
+import Bodyknowctf from "../components/home/bodyknowctf.js";
+import Bodyjob from "../components/home/bodyjob.js";
 
 function index() {
   const [message, setMessage] = useState("Loading")
@@ -20,10 +22,12 @@ function index() {
   return (
     <div>
       <Navbar />
-      <Banner /> {/* ใช้ Banner ที่คุณสร้าง */}
-      {/* แสดงข้อความ Loading หรือข้อมูลที่ได้จาก API ด้านล่างนี้ */}
-      <p>{message}</p>
+      <Banner /> 
+      <Bodywhatisctf/> 
+      <Bodyknowctf/>
+      <Bodyjob/>
     </div>
+    
   );
 }
 
