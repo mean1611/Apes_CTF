@@ -1,10 +1,11 @@
 import React from "react";
 
 function Navbar() {
+
     return (
-        <nav className="navbar bg-primary text-neutral-content fixed top-0 w-full z-10">
+        <nav className="navbar bg-primary text-neutral-content fixed top-0 w-full z-10" >
         <div className="flex-1 ">
-          <a className="btn btn-ghost ">
+          <a href="" className="btn btn-ghost " >
           <img
             src="/images/smiley.png"
             style={{ width: '50px', height: '50px' }} // กำหนดความกว้างและความสูง
@@ -14,6 +15,7 @@ function Navbar() {
             <span style={{ fontSize: '16px' ,fontWeight: 'bold' }}>CTF</span>
           </span>     
           </a>
+          
           <a className="btn btn-ghost  ">
           <img
             src="/images/learn.png"
