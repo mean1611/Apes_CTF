@@ -1,3 +1,235 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@500&family=Raleway:wght@300&display=swap');
+
+.custom-font {
+    font-family: 'IBM Plex Sans Thai', sans-serif;
+    font-family: 'Goldman', cursive;
+  }
+  
+
+
+
+  
+.banner {
+  background-image: url("/images/galaxy.png"); /* ใช้ URL ของรูปภาพของคุณ */
+  background-size: 100% 100%; /* ปรับขนาดรูปภาพให้เต็มพื้นหลัง */
+  background-repeat: no-repeat; /* ไม่ทำซ้ำภาพพื้นหลัง */
+  margin-top: 3% ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0; /* เปลี่ยนสีพื้นหลังตามต้องการ */
+  padding: 20px;
+  height: 400px;
+}
+
+.banner-image {
+  
+  max-width: 100%;
+  height: auto;
+  margin-right: 20px; 
+  width: 200px; /* กำหนดความกว้างของรูป */
+  height: 200px; /* กำหนดความสูงของรูป */
+  
+}
+
+.banner-text {
+  text-align: left; /* เปลี่ยนการจัดวางข้อความตามต้องการ */
+  color: #f1f1f1; /* เปลี่ยนสีข้อความตามต้องการ */
+  
+}
+
+.banner-text h1 {
+  font-size: 50px; /* เปลี่ยนขนาดตัวอักษรของข้อความหลัก */
+  margin: 0;
+  font-family: 'Goldman', cursive;
+  
+}
+
+.banner-text p {
+  font-size: 25px; /* เปลี่ยนขนาดตัวอักษรของข้อความเพิ่มเติม (ถ้ามี) */
+  margin: 5px 0;
+  font-family: 'IBM Plex Sans Thai', sans-serif;
+}
+.navbar {
+  overflow: hidden;
+  font-family: 'Goldman', cursive;
+}
+
+
+.bodywhatisctf {
+   /* ใช้ URL ของรูปภาพของคุณ */
+  background-size: 100% 100%; /* ปรับขนาดรูปภาพให้เต็มพื้นหลัง */
+  background-repeat: no-repeat; /* ไม่ทำซ้ำภาพพื้นหลัง */
+  margin-top: 3% ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+   /* เปลี่ยนสีพื้นหลังตามต้องการ */
+  padding: 20px;
+  height: 400px;
+}
+
+
+
+.bodywhatisctf-image {
+  
+  max-width: 100%;
+  height: auto;
+  margin-right: 20px; 
+  width: 250px; /* กำหนดความกว้างของรูป */
+  height: 200px; /* กำหนดความสูงของรูป */
+  
+}
+
+.bodywhatisctf-text {
+  text-align: left; /* เปลี่ยนการจัดวางข้อความตามต้องการ */
+  color: #000000; /* เปลี่ยนสีข้อความตามต้องการ */
+  
+}
+
+.bodywhatisctf-text h1 {
+  font-size: 50px; /* เปลี่ยนขนาดตัวอักษรของข้อความหลัก */
+  margin: 0;
+  font-family: 'IBM Plex Sans Thai', cursive;
+  
+}
+
+.bodywhatisctf-text p {
+  font-size: 20px; /* เปลี่ยนขนาดตัวอักษรของข้อความเพิ่มเติม (ถ้ามี) */
+  margin: 5px 0;
+  font-family: 'IBM Plex Sans Thai', sans-serif;
+}
+
+.bodyknowctf {
+  
+  background-size: 100% 100%; /* ปรับขนาดรูปภาพให้เต็มพื้นหลัง */
+  background-repeat: no-repeat; /* ไม่ทำซ้ำภาพพื้นหลัง */
+  display: flex; 
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+   /* เปลี่ยนสีพื้นหลังตามต้องการ */
+  height: 600px; /* จัดตำแหน่งรูปภาพให้อยู่ตรงกลาง */
+}
+
+.card-body h2 {
+  font-size: 25px; /* เปลี่ยนขนาดตัวอักษรของข้อความเพิ่มเติม (ถ้ามี) */
+  margin: 5px 0;
+  font-family: 'Goldman', cursive;
+}
+
+.card-body p {
+  font-size: 20px; /* เปลี่ยนขนาดตัวอักษรของข้อความเพิ่มเติม (ถ้ามี) */
+  font-family: 'IBM Plex Sans Thai', sans-serif; /* ค่า line-height เท่ากับ 1 เพื่อลดช่องวางระหว่างบรรทัด */
+  margin: 0; /* ลบการเว้นระยะทั้งหมด */
+  padding: 0; /* ลบการเว้นระยะภายใน */
+  line-height: 1; /* ตั้งค่า line-height เป็น 1 เพื่อป้องกันการเว้นระยะบรรทัด */
+}
+
+.bodyknowctf-image {
+  
+  max-width: 100%;
+  height: auto;
+  margin-right: 50px; 
+  margin-left: 50px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 400px; /* กำหนดความกว้างของรูป */
+  height: 400px; /* กำหนดความสูงของรูป */
+  
+}
+
+.carousel {
+   /* กำหนดความกว้างของ carousel ตามที่คุณต้องการ */
+  height: 600px; /* กำหนดความสูงของ carousel ตามที่คุณต้องการ */
+}
+
+.bodyjob {
+ flex-direction: column;
+ background-size: 100% 100%; 
+ background-repeat: no-repeat; 
+ margin-top: 3% ;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ padding: 20px;
+ height: 1500px;
+ column-count: 1;
+}
+
+.bodyjob h1 {
+  font-size: 50px; /* เปลี่ยนขนาดตัวอักษรของข้อความหลัก */
+  margin: 0;
+  font-family: 'IBM Plex Sans Thai', cursive;
+  
+}
+
+.bodyjob-image {
+  
+  max-width: 100%;
+  height: auto;
+ 
+  width: 400px; /* กำหนดความกว้างของรูป */
+  height: 300px; /* กำหนดความสูงของรูป */
+  
+}
+
+.bodyjob-text {
+  text-align: left; /* เปลี่ยนการจัดวางข้อความตามต้องการ */
+  color: #000000; /* เปลี่ยนสีข้อความตามต้องการ */
+  
+}
+
+.bodyjob-text h1 {
+  font-size: 50px; /* เปลี่ยนขนาดตัวอักษรของข้อความหลัก */
+  margin: 0;
+  font-family: 'IBM Plex Sans Thai', cursive;
+  
+}
+
+.bodyjob-text p {
+  font-size: 20px; /* เปลี่ยนขนาดตัวอักษรของข้อความเพิ่มเติม (ถ้ามี) */
+  margin: 5px 0;
+  font-family: 'IBM Plex Sans Thai', sans-serif;
+}
+
+.getstart{
+  flex-direction: column;
+  background-size: 100% 100%; 
+  background-repeat: no-repeat; 
+  margin-top: 3% ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  height: auto;
+  column-count: 1;
+}
+
+.getstart-text h1 {
+  font-size: 50px; /* เปลี่ยนขนาดตัวอักษรของข้อความหลัก */
+  margin: 0;
+  font-family: 'IBM Plex Sans Thai', cursive;
+  
+}
+
+.getstart-button {
+  flex-direction: row;
+  background-size: 100% 100%;
+  font-family: 'Goldman', cursive;
+  
+}
+
+.getstart-button h1 {
+  font-size: 40px; /* เปลี่ยนขนาดตัวอักษรของข้อความหลัก */
+  margin: 0;
+  font-family: 'IBM Plex Sans Thai', cursive;
+}
+
+.getstart-btn{
+  color: #f1f1f1;
+}
