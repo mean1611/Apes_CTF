@@ -5,7 +5,7 @@ function Navbar() {
     return (
         <nav className="navbar bg-primary text-neutral-content fixed top-0 w-full z-10" >
         <div className="flex-1 ">
-          <a href="" className="btn btn-ghost " >
+          <a href="/" className="btn btn-ghost " >
           <img
             src="/images/smiley.png"
             style={{ width: '50px', height: '50px' }} // กำหนดความกว้างและความสูง
@@ -35,9 +35,12 @@ function Navbar() {
           </span>      
           </a>
         </div>
-        <div className="flex-none">
+        <a href="/login" className="flex-none">
+          <button className="btn btn-ghost">Login</button>
+        </a>
+        <a href="/signup" className="flex-none">
           <button className="btn btn bg-green-400">Join Now</button>
-        </div>
+        </a>
       </nav>
     )
 }
