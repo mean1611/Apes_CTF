@@ -15,8 +15,7 @@ function Navbar() {
             <span style={{ fontSize: '16px' ,fontWeight: 'bold' }}>CTF</span>
           </span>     
           </a>
-          
-          <a className="btn btn-ghost  ">
+          <a className="btn btn-ghost" href="/learn">
           <img
             src="/images/learn.png"
             style={{ width: '40px', height: '40px' }} // กำหนดความกว้างและความสูง
@@ -25,7 +24,7 @@ function Navbar() {
             <span style={{ display: 'block',fontSize: '20px',fontWeight: 'bold'  }}>Learn</span>
           </span>      
           </a>
-          <a className="btn btn-ghost ">
+          <a className="btn btn-ghost" href="/practice">
           <img
             src="/images/practice.png"
             style={{ width: '50px', height: '40px' }} // กำหนดความกว้างและความสูง

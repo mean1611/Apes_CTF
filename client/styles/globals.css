@@ -9,9 +9,6 @@
     font-family: 'Goldman', cursive;
   }
   
-
-
-
   
 .banner {
   background-image: url("/images/galaxy.png"); /* ใช้ URL ของรูปภาพของคุณ */
@@ -206,6 +203,14 @@
   padding: 20px;
   height: auto;
   column-count: 1;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 200px; /* Set an appropriate height for the columns */
+}
+
+.getstart-column {
+  text-align: center;
 }
 
 .getstart-text h1 {
@@ -222,10 +227,10 @@
   
 }
 
-.getstart-button h1 {
+.getstart-text {
   font-size: 40px; /* เปลี่ยนขนาดตัวอักษรของข้อความหลัก */
   margin: 0;
-  font-family: 'IBM Plex Sans Thai', cursive;
+  font-family: 'Goldman', cursive;
 }
 
 .getstart-btn{
@@ -260,3 +265,146 @@
   width: 100%;
   height: 100%;
 }
+
+.learn-banner-text { /* เปลี่ยนการจัดวางข้อความตามต้องการ */
+  color: #f1f1f1; /* เปลี่ยนสีข้อความตามต้องการ */
+  margin-right: 500px;
+}
+
+.learn-banner-text h1 {
+  font-size: 50px; /* เปลี่ยนขนาดตัวอักษรของข้อความหลัก */
+  /*margin: 0;*/
+  font-family: 'Goldman', cursive;
+  
+}
+
+.learn-banner-text p {
+  font-size: 25px; /* เปลี่ยนขนาดตัวอักษรของข้อความเพิ่มเติม (ถ้ามี) */
+  /*margin: 5px 0;*/
+  font-family: 'IBM Plex Sans Thai', sans-serif;
+}
+
+
+.learn-body  {
+  background-size: 100% 100%;
+  font-size: 15px;
+  
+}
+
+
+.banner-learn {
+  background-image: url("/images/artboard1.png"); 
+  background-size: 100% 100%; 
+  background-repeat: no-repeat; 
+  margin-top: 3% ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  height: 350px;
+}
+
+.menu-learn{
+  background-size: 100% 100%; 
+  background-repeat: no-repeat; 
+  display: flex;
+  padding: 20px;
+  width: 500px;
+  height: 250px;
+  position: fixed;
+  grid-column: 1;
+  justify-content: flex-end;
+
+}
+
+.menu-learn div {
+  margin-left: 50%;
+}
+
+.learn-content{
+  background-size: 100% 100%; 
+  background-repeat: no-repeat; 
+  display: flex;
+  padding: 20px;
+  grid-column: 2 / span 3;
+  height: 100%;
+}
+
+
+
+.learn-content  h1{
+  font-size: 50px; 
+  font-family: 'Goldman', cursive;
+  margin-top: 2%;
+}
+
+.learn-content  h2{
+  font-size: 15px; 
+  font-family: 'IBM Plex Sans Thai', sans-serif;
+  margin-top: 2%;
+}
+
+.learn-content  p{
+  font-size: 15px; 
+  font-family: 'IBM Plex Sans Thai', sans-serif;
+  margin-top: 10px;
+}
+
+
+.practice-banner-text { /* เปลี่ยนการจัดวางข้อความตามต้องการ */
+  color: #f1f1f1; /* เปลี่ยนสีข้อความตามต้องการ */
+  margin-right: 500px;
+}
+
+.practice-banner-text h1 {
+  font-size: 50px; /* เปลี่ยนขนาดตัวอักษรของข้อความหลัก */
+  /*margin: 0;*/
+  font-family: 'Goldman', cursive;
+  
+}
+
+.practice-banner-text p {
+  font-size: 25px; /* เปลี่ยนขนาดตัวอักษรของข้อความเพิ่มเติม (ถ้ามี) */
+  /*margin: 5px 0;*/
+  font-family: 'IBM Plex Sans Thai', sans-serif;
+}
+
+
+.practice-content  {
+  font-size: 15px;
+  height: 500px;
+}
+
+
+.banner-practice {
+  background-image: url("/images/artboard1.png"); /* ใช้ URL ของรูปภาพของคุณ */
+  background-size: 100% 100%; /* ปรับขนาดรูปภาพให้เต็มพื้นหลัง */
+  background-repeat: no-repeat; /* ไม่ทำซ้ำภาพพื้นหลัง */
+  margin-top: 3% ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0; /* เปลี่ยนสีพื้นหลังตามต้องการ */
+  padding: 20px;
+  height: 350px;
+}
+
+
+
+
+/*.menu-learn ul li {
+  list-style: none;
+  margin: 0 10px;
+  padding: 10px 15px;
+
+  border-radius: 5px;
+}
+
+.menu-learn ul li a {
+  color: black;
+  text-decoration: none;
+}
+
+.menu-learn ul li a:hover {
+  background-color: #ccc;
+}*/
