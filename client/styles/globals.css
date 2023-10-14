@@ -50,7 +50,11 @@
   font-family: 'IBM Plex Sans Thai', sans-serif;
 }
 .navbar {
-  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9;
   font-family: 'Goldman', cursive;
 }
 
@@ -309,12 +313,11 @@
   background-repeat: no-repeat; 
   display: flex;
   padding: 20px;
-  width: 500px;
+  height: 100%;
+  font-family: 'Goldman', cursive;
+  /*width: 500px;
   height: 250px;
-  position: fixed;
-  grid-column: 1;
-  justify-content: flex-end;
-
+  position: fixed;*/
 }
 
 .menu-learn div {
@@ -326,7 +329,6 @@
   background-repeat: no-repeat; 
   display: flex;
   padding: 20px;
-  grid-column: 2 / span 3;
   height: 100%;
 }
 
@@ -339,13 +341,13 @@
 }
 
 .learn-content  h2{
-  font-size: 15px; 
+  font-size: 17px; 
   font-family: 'IBM Plex Sans Thai', sans-serif;
   margin-top: 2%;
 }
 
 .learn-content  p{
-  font-size: 15px; 
+  font-size: 17px; 
   font-family: 'IBM Plex Sans Thai', sans-serif;
   margin-top: 10px;
 }

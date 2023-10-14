@@ -41,7 +41,7 @@ function index() {
             <Menulearn/>
             <div className="learn-content menu bg-base-200 w-56  col-span-3 w-full">
               <div className="col-span-3">
-                <div ></div>
+
               <h1  className="learn-title ">Cryptography</h1>
               <h2>Cryptography ใน CTF คือหมวดการแข่งขันที่เกี่ยวกับการโจมตีการเข้ารหัสต่าง ๆ เพื่ออ่านหรือแก้ไขข้อความที่ถูกเข้ารหัสอยู่ ซึ่งอาจให้เป็นโค้ดโปรแกรม หรือแอปพลิเคชัน 
               <br/>ที่มีการเข้ารหัสที่ไม่ปลอดภัยมาให้ทำการวิเคราะห์เพื่อหาคำตอบ โจทย์ในหมวดนี้อาจแบ่งออกเป็นประเภทย่อย ๆ ได้ดังนี้</h2> 
