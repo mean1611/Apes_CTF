@@ -19,9 +19,13 @@ function Usermanage() {
     // TODO: เพิ่มผู้ใช้ใหม่
   };
 
-  const handleClickEdit = () => {
-    // TODO: แสดงข้อมูลผู้ใช้ใน Card ใหม่
-    setSelectedUser(users[event.target.id])
+  const handleClickEdit = (user) => {
+    setSelectedUser(user);
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setSelectedUser({ ...selectedUser, [name]: value });
   };
 
   const handleClickDelete = () => {
@@ -49,7 +53,7 @@ function Usermanage() {
                   <td>{user.username}</td>
                   <td>{user.email}</td>
                   <td>
-                    <button className="btn btn-warning" id={user.user_id} onClick={handleClickEdit}>แก้ไข</button>
+                    <button className="btn btn-warning" id={user.user_id} onClick={() => handleClickEdit(user)}>แก้ไข</button>
                     <button className="btn btn-error" id={user.user_id} onClick={handleClickDelete}>ลบ</button>
                   </td>
                 </tr>
@@ -63,9 +67,9 @@ function Usermanage() {
         </div>
         <div className="card-body">
           <form>
-            <input type="text" placeholder="รหัสผู้ใช้" value={selectedUser?.user_id} />
-            <input type="text" placeholder="ชื่อผู้ใช้" value={selectedUser?.username} />
-            <input type="text" placeholder="อีเมล" value={selectedUser?.email} />
+            <input type="text" placeholder="รหัสผู้ใช้" value={selectedUser?.user_id || ""} />
+            <input type="text" placeholder="ชื่อผู้ใช้" value={selectedUser?.username || ""} />
+            <input type="text" placeholder="อีเมล" value={selectedUser?.email || ""} />
             <button className="btn btn-success" type="submit">บันทึก</button>
           </form>
         </div>
