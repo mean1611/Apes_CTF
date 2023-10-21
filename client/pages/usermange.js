@@ -1,58 +1,77 @@
-import React, { useEffect, useState } from "react";
-import Navbar from "../components/Navbar.js";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
-const { PrismaClient } = require('@prisma/client')
-const prisma = new PrismaClient();
-
-function Usermange() {
+function Usermanage() {
   const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [selectedUser, setSelectedUser] = useState(null);
+
+  const getUser = async() => {
+    let result = await axios.get('http://localhost:8080/api/user')
+    setUsers(result.data.data.sort((a, b) => a.user_id - b.user_id))
+    console.log(result.data.data)
+  }
 
   useEffect(() => {
-    prisma.user
-      .findMany()
-      .then((data) => {
-        setUsers(data);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error("Error fetching user data:", error);
-        setLoading(false);
-      });
+    getUser()
   }, []);
+
+  const handleClickAdd = () => {
+    // TODO: เพิ่มผู้ใช้ใหม่
+  };
+
+  const handleClickEdit = () => {
+    // TODO: แสดงข้อมูลผู้ใช้ใน Card ใหม่
+    setSelectedUser(users[event.target.id])
+  };
+
+  const handleClickDelete = () => {
+    // TODO: ลบผู้ใช้
+  };
 
   return (
     <div>
-      {/* Navbar */}
-      <Navbar />
-
-      <div className="container mx-auto mt-4">
-        {loading ? (
-          <p>Loading...</p>
-        ) : (
-          <table className="table">
-            {/* สร้างส่วนหัวของตาราง */}
-            <thead>
-              <tr>
-                <th>Username</th>
-                <th>Email</th>
-                <th>Date Created</th>
-              </tr>
-            </thead>
-            {/* สร้างส่วนเนื้อหาของตาราง */}
-            <tbody>
-              {users.map((user) => (
-                <tr key={user.id}>
+      <div className="overflow-x-auto">
+        <table className="table table-zebra">
+          {/* head */}
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Username</th>
+              <th>Email</th>
+            </tr>
+          </thead>
+          <tbody>
+            {/* render users data */}
+            {users.length > 0 &&
+              users.map((user) => (
+                <tr key={user.user_id}>
+                  <td>{user.user_id}</td>
                   <td>{user.username}</td>
                   <td>{user.email}</td>
+                  <td>
+                    <button className="btn btn-warning" id={user.user_id} onClick={handleClickEdit}>แก้ไข</button>
+                    <button className="btn btn-error" id={user.user_id} onClick={handleClickDelete}>ลบ</button>
+                  </td>
                 </tr>
               ))}
-            </tbody>
-          </table>
-        )}
+          </tbody>
+        </table>
+      </div>
+      <div className="card">
+        <div className="card-header">
+          แก้ไขข้อมูลผู้ใช้
+        </div>
+        <div className="card-body">
+          <form>
+            <input type="text" placeholder="รหัสผู้ใช้" value={selectedUser?.user_id} />
+            <input type="text" placeholder="ชื่อผู้ใช้" value={selectedUser?.username} />
+            <input type="text" placeholder="อีเมล" value={selectedUser?.email} />
+            <button className="btn btn-success" type="submit">บันทึก</button>
+          </form>
+        </div>
       </div>
     </div>
   );
 }
 
-export default Usermange;
+export default Usermanage;
