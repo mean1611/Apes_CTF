@@ -6,6 +6,8 @@ import Bodyknowctf from "../components/home/bodyknowctf.js";
 import Bodyjob from "../components/home/bodyjob.js";
 import Footer from "../components/home/footer.js";
 import Getstart from "../components/home/getstart.js";
+import Navbaradmin from "../components/admin/navbarAdmin.js";
+
 function index() {
   const [message, setMessage] = useState("Loading")
 
@@ -23,7 +25,7 @@ function index() {
 
   return (
     <div>
-      <Navbar  />
+      <Navbaradmin  />
       <Banner /> 
       <Bodywhatisctf/> 
       <Bodyknowctf/>
