@@ -9,7 +9,7 @@ function Usermanage() {
     let result = await axios.get('http://localhost:8080/api/user')
     setUsers(result.data.data.sort((a, b) => a.user_id - b.user_id))
     console.log(result.data.data)
-  }
+  };
 
   useEffect(() => {
     getUser()
@@ -30,6 +30,25 @@ function Usermanage() {
 
   const handleClickDelete = () => {
     // TODO: ลบผู้ใช้
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const user_id = selectedUser?.user_id;
+
+    const response = await axios.put('http://localhost:8080/api/user/' + user_id, {
+      username: selectedUser.username,
+      password: selectedUser.password,
+    });
+
+    if (response.status === 200) {
+      alert('บันทึกข้อมูลเรียบร้อย');
+      // รีโหลดหน้า
+      window.location.reload();
+    } else {
+      alert('เกิดข้อผิดพลาดในการบันทึกข้อมูล');
+    }
   };
 
   return (
@@ -66,10 +85,11 @@ function Usermanage() {
           แก้ไขข้อมูลผู้ใช้
         </div>
         <div className="card-body">
-          <form>
-            <input type="text" placeholder="รหัสผู้ใช้" value={selectedUser?.user_id || ""} />
-            <input type="text" placeholder="ชื่อผู้ใช้" value={selectedUser?.username || ""} />
-            <input type="text" placeholder="อีเมล" value={selectedUser?.email || ""} />
+          <form onSubmit={handleSubmit}>
+            <input type="text" placeholder="รหัสผู้ใช้" className="input input-bordered w-full max-w-xs" value={selectedUser?.user_id || ""} />
+            <input type="text" placeholder="อีเมล" className="input input-bordered w-full max-w-xs" value={selectedUser?.email || ""} />
+            <input type="text" placeholder="ชื่อผู้ใช้" className="input input-bordered w-full max-w-xs" name="username" value={selectedUser?.username || ""} onChange={handleInputChange} />
+            <input type="text" placeholder="Password" className="input input-bordered w-full max-w-xs" name="password"value={selectedUser?.password || ""} onChange={handleInputChange} />
             <button className="btn btn-success" type="submit">บันทึก</button>
           </form>
         </div>
