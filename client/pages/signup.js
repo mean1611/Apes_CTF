@@ -7,7 +7,7 @@ function index() {
   const { errors, validateForm } = useValidation();
 
   useEffect(() => {
-    fetch("http://localhost:8080/api/home")
+    fetch("http://localhost:3000/api/home")
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
