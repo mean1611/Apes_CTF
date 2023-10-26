@@ -11,8 +11,10 @@ app.get("/", (req , res) => {
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
+
 // Add cors
 app.use(cors());
+
 // Routes Files
 import routes from "./routes/index.js";
 app.use(routes);
