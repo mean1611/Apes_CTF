@@ -13,7 +13,6 @@ function  SendReport() {
                         <h2 className="label-text">Report</h2>
                     </label>
                         <input type="text" placeholder="Title" className="input input-bordered w-full max-w-xs " />
-                        
                         <textarea type="text" placeholder="Detail" className="report-detail  w-full h-full appearance-none block eounded-lg bg-base-100 border py-4 px-3 focus:outline-none   " />
                         <button className="btn bg-green-500">Submit</button>
                     </div>

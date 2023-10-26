@@ -6,7 +6,7 @@ function Menulearn() {
         <ul className="menu-learn menu">
         <div>
             <li>
-            <h1 className="menu-title menu">Section</h1>
+            <h1 className="menu-title menu text-base-100">Section</h1>
               <ul>
                   <li><a href="#item1">Cryptography</a></li>
                   <li><a href="#item2">Web/Mobile Exploitation</a></li>
