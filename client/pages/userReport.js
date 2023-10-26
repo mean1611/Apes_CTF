@@ -23,10 +23,10 @@ function index() {
     <div >
       <Navbaruser  />
       <div className="userreport  grid grid-cols-4">
-        <div className="mt-10">
+        <div className="mt-10 col-1">
         <Profileuser />
         </div>
-       <div className=" ">
+       <div className="col-2 col-span-3">
         <SendReport />
         </div>
         

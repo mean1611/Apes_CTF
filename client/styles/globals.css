@@ -11,14 +11,14 @@
   
   
 .banner {
-  background-image: url("/images/galaxy.png"); /* ใช้ URL ของรูปภาพของคุณ */
-  background-size: 100% 100%; /* ปรับขนาดรูปภาพให้เต็มพื้นหลัง */
-  background-repeat: no-repeat; /* ไม่ทำซ้ำภาพพื้นหลัง */
+  background-image: url("/images/galaxy.png"); 
+  background-size: 100% 100%; 
+  background-repeat: no-repeat; 
   margin-top: 3% ;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f0f0f0; /* เปลี่ยนสีพื้นหลังตามต้องการ */
+  background-color: #f0f0f0; 
   padding: 20px;
   height: 400px;
 }
@@ -27,25 +27,25 @@
   max-width: 100%;
   height: auto;
   margin-right: 20px; 
-  width: 200px; /* กำหนดความกว้างของรูป */
-  height: 200px; /* กำหนดความสูงของรูป */
+  width: 200px; 
+  height: 200px; 
 }
 
 .banner-text {
-  text-align: left; /* เปลี่ยนการจัดวางข้อความตามต้องการ */
-  color: #f1f1f1; /* เปลี่ยนสีข้อความตามต้องการ */
+  text-align: left; 
+  color: #f1f1f1; 
   
 }
 
 .banner-text h1 {
-  font-size: 50px; /* เปลี่ยนขนาดตัวอักษรของข้อความหลัก */
+  font-size: 50px; 
   margin: 0;
   font-family: 'Goldman', cursive;
   
 }
 
 .banner-text p {
-  font-size: 25px; /* เปลี่ยนขนาดตัวอักษรของข้อความเพิ่มเติม (ถ้ามี) */
+  font-size: 25px; 
   margin: 5px 0;
   font-family: 'IBM Plex Sans Thai', sans-serif;
 }
@@ -60,14 +60,12 @@
 
 
 .bodywhatisctf {
-   /* ใช้ URL ของรูปภาพของคุณ */
-  background-size: 100% 100%; /* ปรับขนาดรูปภาพให้เต็มพื้นหลัง */
-  background-repeat: no-repeat; /* ไม่ทำซ้ำภาพพื้นหลัง */
+  background-size: 100% 100%; 
+  background-repeat: no-repeat; 
   margin-top: 3% ;
   display: flex;
   justify-content: center;
   align-items: center;
-   /* เปลี่ยนสีพื้นหลังตามต้องการ */
   padding: 20px;
   height: 400px;
 }
@@ -79,54 +77,53 @@
   max-width: 100%;
   height: auto;
   margin-right: 20px; 
-  width: 250px; /* กำหนดความกว้างของรูป */
-  height: 200px; /* กำหนดความสูงของรูป */
+  width: 250px;
+  height: 200px; 
   
 }
 
 .bodywhatisctf-text {
-  text-align: left; /* เปลี่ยนการจัดวางข้อความตามต้องการ */
-  color: #000000; /* เปลี่ยนสีข้อความตามต้องการ */
+  text-align: left; 
+  color: #000000; 
   
 }
 
 .bodywhatisctf-text h1 {
-  font-size: 50px; /* เปลี่ยนขนาดตัวอักษรของข้อความหลัก */
+  font-size: 50px; 
   margin: 0;
   font-family: 'IBM Plex Sans Thai', cursive;
   
 }
 
 .bodywhatisctf-text p {
-  font-size: 20px; /* เปลี่ยนขนาดตัวอักษรของข้อความเพิ่มเติม (ถ้ามี) */
+  font-size: 20px; 
   margin: 5px 0;
   font-family: 'IBM Plex Sans Thai', sans-serif;
 }
 
 .bodyknowctf {
   
-  background-size: 100% 100%; /* ปรับขนาดรูปภาพให้เต็มพื้นหลัง */
-  background-repeat: no-repeat; /* ไม่ทำซ้ำภาพพื้นหลัง */
+  background-size: 100% 100%; 
+  background-repeat: no-repeat; 
   display: flex; 
   flex-direction: column;
   justify-content: center;
   align-items: center;
-   /* เปลี่ยนสีพื้นหลังตามต้องการ */
-  height: 600px; /* จัดตำแหน่งรูปภาพให้อยู่ตรงกลาง */
+  height: 600px; 
 }
 
 .card-body h2 {
-  font-size: 25px; /* เปลี่ยนขนาดตัวอักษรของข้อความเพิ่มเติม (ถ้ามี) */
+  font-size: 25px; 
   margin: 5px 0;
   font-family: 'Goldman', cursive;
 }
 
 .card-body p {
-  font-size: 20px; /* เปลี่ยนขนาดตัวอักษรของข้อความเพิ่มเติม (ถ้ามี) */
-  font-family: 'IBM Plex Sans Thai', sans-serif; /* ค่า line-height เท่ากับ 1 เพื่อลดช่องวางระหว่างบรรทัด */
-  margin: 0; /* ลบการเว้นระยะทั้งหมด */
-  padding: 0; /* ลบการเว้นระยะภายใน */
-  line-height: 1; /* ตั้งค่า line-height เป็น 1 เพื่อป้องกันการเว้นระยะบรรทัด */
+  font-size: 20px; 
+  font-family: 'IBM Plex Sans Thai', sans-serif; 
+  margin: 0; 
+  padding: 0; 
+  line-height: 1; 
 }
 
 .bodyknowctf-image {
@@ -137,14 +134,13 @@
   margin-left: 50px;
   margin-top: 20px;
   margin-bottom: 20px;
-  width: 400px; /* กำหนดความกว้างของรูป */
-  height: 400px; /* กำหนดความสูงของรูป */
+  width: 400px; 
+  height: 400px; 
   
 }
 
 .carousel {
-   /* กำหนดความกว้างของ carousel ตามที่คุณต้องการ */
-  height: 600px; /* กำหนดความสูงของ carousel ตามที่คุณต้องการ */
+  height: 600px; 
 }
 
 .bodyjob {
@@ -161,7 +157,7 @@
 }
 
 .bodyjob h1 {
-  font-size: 50px; /* เปลี่ยนขนาดตัวอักษรของข้อความหลัก */
+  font-size: 50px; 
   margin: 0;
   font-family: 'IBM Plex Sans Thai', cursive;
   
@@ -172,26 +168,26 @@
   max-width: 100%;
   height: auto;
  
-  width: 400px; /* กำหนดความกว้างของรูป */
-  height: 300px; /* กำหนดความสูงของรูป */
+  width: 400px; 
+  height: 300px; 
   
 }
 
 .bodyjob-text {
-  text-align: left; /* เปลี่ยนการจัดวางข้อความตามต้องการ */
-  color: #000000; /* เปลี่ยนสีข้อความตามต้องการ */
+  text-align: left; 
+  color: #000000; 
   
 }
 
 .bodyjob-text h1 {
-  font-size: 50px; /* เปลี่ยนขนาดตัวอักษรของข้อความหลัก */
+  font-size: 50px; 
   margin: 0;
   font-family: 'IBM Plex Sans Thai', cursive;
   
 }
 
 .bodyjob-text p {
-  font-size: 20px; /* เปลี่ยนขนาดตัวอักษรของข้อความเพิ่มเติม (ถ้ามี) */
+  font-size: 20px; 
   margin: 5px 0;
   font-family: 'IBM Plex Sans Thai', sans-serif;
 }
@@ -210,7 +206,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  height: 200px; /* Set an appropriate height for the columns */
+  height: 200px; 
 }
 
 .getstart-column {
@@ -218,7 +214,7 @@
 }
 
 .getstart-text h1 {
-  font-size: 50px; /* เปลี่ยนขนาดตัวอักษรของข้อความหลัก */
+  font-size: 50px; 
   margin: 0;
   font-family: 'IBM Plex Sans Thai', cursive;
   
@@ -232,7 +228,7 @@
 }
 
 .getstart-text {
-  font-size: 40px; /* เปลี่ยนขนาดตัวอักษรของข้อความหลัก */
+  font-size: 40px; 
   margin: 0;
   font-family: 'Goldman', cursive;
 }
@@ -242,10 +238,10 @@
 }
 
 .form-control {
-  width: 100%; /* กำหนดให้ช่องกรอกข้อมูลทั้งหมดมีความกว้างเต็มรูปแบบ */
-  max-width: 300px; /* กำหนดความกว้างสูงสุดของช่องกรอกข้อมูล */
-  margin-left: auto; /* ขยับช่องกรอกข้อมูลไปทางขวา */
-  margin-right: auto; /* ขยับช่องกรอกข้อมูลไปทางซ้าย */
+  width: 100%; 
+  max-width: 300px; 
+  margin-left: auto; 
+  margin-right: auto; 
 }
 
 .hero-content h1{   
@@ -258,8 +254,8 @@
 
 .hero {
   background-image: url("/images/fadecolourwall.jpg");
-  background-size: cover; /* ปรับขนาดรูปภาพให้เต็มพื้นหลังโดยครอบรูปโดยให้ไม่ตัดข้อมูลออกไป */
-  background-position: center; /* ตำแหน่งรูปภาพในพื้นหลัง */
+  background-size: cover; 
+  background-position: center; 
   background-repeat: no-repeat;
   margin-top: 3%;
   display: flex;
@@ -270,24 +266,28 @@
   height: 100%;
 }
 
-.learn-banner-text { /* เปลี่ยนการจัดวางข้อความตามต้องการ */
-  color: #f1f1f1; /* เปลี่ยนสีข้อความตามต้องการ */
+.learn-banner-text { 
+  color: #f1f1f1; 
   margin-right: 500px;
 }
 
 .learn-banner-text h1 {
-  font-size: 50px; /* เปลี่ยนขนาดตัวอักษรของข้อความหลัก */
-  /*margin: 0;*/
+  font-size: 50px; 
   font-family: 'Goldman', cursive;
   
 }
 
 .learn-banner-text p {
-  font-size: 25px; /* เปลี่ยนขนาดตัวอักษรของข้อความเพิ่มเติม (ถ้ามี) */
-  /*margin: 5px 0;*/
+  font-size: 25px; 
   font-family: 'IBM Plex Sans Thai', sans-serif;
 }
 
+.learn-image{
+  width: 150px;
+  height: 150px;
+
+  margin-top: 5%;
+}
 
 .learn-body  {
   background-size: 100% 100%;
@@ -297,7 +297,7 @@
 
 
 .banner-learn {
-  background-image: url("/images/artboard1.png"); 
+ background-color: rgb(143, 142, 155);
   background-size: 100% 100%; 
   background-repeat: no-repeat; 
   margin-top: 3% ;
@@ -315,9 +315,7 @@
   padding: 20px;
   height: 100%;
   font-family: 'Goldman', cursive;
-  /*width: 500px;
-  height: 250px;
-  position: fixed;*/
+
 }
 
 .menu-learn div {
@@ -353,21 +351,19 @@
 }
 
 
-.practice-banner-text { /* เปลี่ยนการจัดวางข้อความตามต้องการ */
-  color: #f1f1f1; /* เปลี่ยนสีข้อความตามต้องการ */
+.practice-banner-text { 
+  color: #f1f1f1; 
   margin-right: 500px;
 }
 
 .practice-banner-text h1 {
-  font-size: 50px; /* เปลี่ยนขนาดตัวอักษรของข้อความหลัก */
-  /*margin: 0;*/
+  font-size: 50px;
   font-family: 'Goldman', cursive;
   
 }
 
 .practice-banner-text p {
-  font-size: 25px; /* เปลี่ยนขนาดตัวอักษรของข้อความเพิ่มเติม (ถ้ามี) */
-  /*margin: 5px 0;*/
+  font-size: 25px; 
   font-family: 'IBM Plex Sans Thai', sans-serif;
 }
 
@@ -379,14 +375,13 @@
 
 
 .banner-practice {
-  background-image: url("/images/artboard1.png"); /* ใช้ URL ของรูปภาพของคุณ */
-  background-size: 100% 100%; /* ปรับขนาดรูปภาพให้เต็มพื้นหลัง */
-  background-repeat: no-repeat; /* ไม่ทำซ้ำภาพพื้นหลัง */
+  background-color: rgb(143, 142, 155);
+  background-size: 100% 100%; 
+  background-repeat: no-repeat; 
   margin-top: 3% ;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f0f0f0; /* เปลี่ยนสีพื้นหลังตามต้องการ */
   padding: 20px;
   height: 350px;
 }
@@ -397,10 +392,6 @@
   height: 150px;
 }
 
-/*.prosumscore img{
-  width: 30px;
-  height: 30px;
-}*/
 
 .profilecard{
   margin-top: 25%;
@@ -421,7 +412,7 @@
 
 .report-component{
   
-  width: 1550px;
+  width: 100%;
   height: 750px;
   
 }
@@ -431,4 +422,38 @@
 }
 .userreport{
   margin-top: 5%;
+}
+
+.practice-body {
+
+  background-size: 100% 100%; 
+  background-repeat: no-repeat; 
+  background-color: #232140; 
+  height: 750px;
+}
+
+.practice-body img{
+  width: 50px;
+  height: 50px;
+}
+.category-btn{
+  width: 300px;
+  height: 300px;
+}
+
+.practice-body h1{
+  font-size: 20px;
+  font-family: 'Goldman', cursive;
+}
+
+.practice-body a{
+    background-image: url("/images/category_image.png");
+    background-size: 100% 100%; 
+    background-repeat: no-repeat; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+  
 }
