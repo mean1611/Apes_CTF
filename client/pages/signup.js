@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../components/home/navbar.js";
 import useValidation from "../function/validation.js";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 function index() {
   const [message, setMessage] = useState("Loading");
@@ -15,18 +17,38 @@ function index() {
       });
   }, []);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-
+  
     const values = {
       username: event.target.username.value,
       email: event.target.email.value,
       password: event.target.password.value,
       confirmPassword: event.target.confirmPassword.value,
+      user_role_id: 2, // user role id for new users
     };
-
+  
     if (validateForm(values)) {
       // Submit the form
+      try {
+        await axios.post("http://localhost:8080/api/user", values);
+        // Show a success message
+        Swal.fire({
+          title: "Success!",
+          text: "Your account has been created successfully!",
+          icon: "success",
+          confirmButtonText: "OK",
+        });
+      window.location.href = "/login";
+      } catch (error) {
+        // Show an error message
+        Swal.fire({
+          title: "Error!",
+          text: error.message,
+          icon: "error",
+          confirmButtonText: "OK",
+        });
+      }
     }
   };
 
