@@ -10,7 +10,18 @@ datasource db {
 
 // กำหนดโมเดลของคุณ
 model User {
-  user_id    Int      @id @default(autoincrement())
-  username   String
-  email      String   @unique
+  user_id       Int      @id @default(autoincrement())
+  username      String?
+  password      String?
+  email         String   @unique
+  user_role_id  Int
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime?
+  deletedAt     DateTime?
+
+}
+
+model User_role {
+  user_role_id Int      @id @default(autoincrement())
+  role_title   String?
 }
