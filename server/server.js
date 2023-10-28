@@ -2,28 +2,10 @@ import express from "express";
 import cors from 'cors';
 
 const app = express();
-<<<<<<< Updated upstream
 const PORT = 8080;
 
 app.get("/", (req , res) => {
     return res.send("HELLO WORLD");
-=======
-
-const cors = require("cors");
-const PORT = 8080;
-
-// const Prisma = require('@prisma/client');
-// const prisma = new Prisma.PrismaClient();
-// const creat = async() => {
-//     const newUser = await prisma.user.
-// }
-
-
-app.use(cors());
-
-app.get("/api/home", (req , res) => {
-    res.json({message: "HELLO WORLD"});
->>>>>>> Stashed changes
 });
 
 // Middleware
@@ -40,9 +22,3 @@ app.use(routes);
 app.listen(PORT, () => {
     console.log(`Server started on ${PORT}`);
 });
-<<<<<<< Updated upstream
-=======
-
-
-
->>>>>>> Stashed changes
