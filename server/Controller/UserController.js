@@ -21,30 +21,40 @@ export const searchUser = async (req, res) => {
 };
 
 // Create User
+// Create User
 export const createUser = async (req, res) => {
-    const {username, password,email,user_role_id} = req.body
-    
-    const finduser = await prisma.user.findUnique({
+    const { username, password, email, user_role_id } = req.body;
+
+    const existingUserByUsername = await prisma.user.findFirst({
         where: {
-            email: email
-        }
+            username: username,
+        },
+    });
 
-    })
+    const existingUserByEmail = await prisma.user.findFirst({
+        where: {
+            email: email,
+        },
+    });
 
-    if(finduser){
-        return res.json({status:400 , message: "Email already exists"})
+    if (existingUserByUsername && existingUserByEmail) {
+        return res.json({ status: 400, message: "Username and Email already exist" });
+    } else if (existingUserByUsername) {
+        return res.json({ status: 400, message: "Username already exists" });
+    } else if (existingUserByEmail) {
+        return res.json({ status: 400, message: "Email already exists" });
     }
-    
+
     const newUser = await prisma.user.create({
         data: {
             username: username,
             password: password,
             email: email,
-            user_role_id: user_role_id
-        }
-    })
+            user_role_id: user_role_id,
+        },
+    });
 
-    return res.json({status:200 , data: newUser , message: "User created successfully"})
+    return res.json({ status: 200, data: newUser, message: "User created successfully" });
 };
 
 // Update User

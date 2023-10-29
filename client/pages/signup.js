@@ -29,22 +29,34 @@ function index() {
     };
   
     if (validateForm(values)) {
-      // Submit the form
       try {
-        await axios.post("http://localhost:8080/api/user", values);
-        // Show a success message
-        Swal.fire({
-          title: "Success!",
-          text: "Your account has been created successfully!",
-          icon: "success",
-          confirmButtonText: "OK",
-        });
-      window.location.href = "/login";
+        const response = await axios.post("http://localhost:8080/api/user", values);
+        
+        if (response.data.status === 200) {
+          // Show a success message with the API message
+          Swal.fire({
+            title: "Success!",
+            text: response.data.message, // Use the message from the API
+            icon: "success",
+            confirmButtonText: "OK",
+          });
+  
+          // Redirect to the login page or perform any other actions
+          window.location.href = "/login";
+        } else {
+          // Show an error message with the API message
+          Swal.fire({
+            title: "Error!",
+            text: response.data.message, // Use the message from the API
+            icon: "error",
+            confirmButtonText: "OK",
+          });
+        }
       } catch (error) {
-        // Show an error message
+        // Show a generic error message if the request fails
         Swal.fire({
           title: "Error!",
-          text: error.message,
+          text: "An error occurred while processing your request",
           icon: "error",
           confirmButtonText: "OK",
         });
