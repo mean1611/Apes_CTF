@@ -21,7 +21,6 @@ export const searchUser = async (req, res) => {
 };
 
 // Create User
-// Create User
 export const createUser = async (req, res) => {
     const { username, password, email, user_role_id } = req.body;
 
