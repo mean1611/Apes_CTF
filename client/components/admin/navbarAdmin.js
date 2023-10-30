@@ -26,7 +26,7 @@ function Navbaradmin() {
           </span>      
           </a>
 
-          <a className="btn btn-ghost" href="/">
+          <a className="btn btn-ghost" href="/usermange">
           <img
             src="/images/usermange.png"
             style={{ width: '50px', height: '40px' }} // กำหนดความกว้างและความสูง
