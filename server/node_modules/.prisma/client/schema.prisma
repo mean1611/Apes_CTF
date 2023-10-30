@@ -25,3 +25,30 @@ model User_role {
   user_role_id Int      @id @default(autoincrement())
   role_title   String?
 }
+
+model Reports {
+  report_id    Int      @id @default(autoincrement())
+  report_title String?
+  report_desc  String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime?
+  deletedAt    DateTime?
+}
+
+model Question {
+  question_id             Int      @id @default(autoincrement())
+  question_title          String?
+  question_desc           String?
+  answer                  String?
+  hint                    String?
+  score                   Int
+  question_category_id    Int
+  createdAt               DateTime @default(now())
+  updatedAt               DateTime?
+  deletedAt               DateTime?
+}
+
+model Question_category {
+  question_category_id    Int      @id @default(autoincrement())
+  question_category_name  String?
+}
