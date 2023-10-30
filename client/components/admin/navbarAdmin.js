@@ -16,13 +16,13 @@ function Navbaradmin() {
           </span>     
           </a>
           
-          <a className="btn btn-ghost" href="/practice">
+          <a className="btn btn-ghost" href="/questionmanage">
           <img
             src="/images/practice.png"
             style={{ width: '50px', height: '40px' }} // กำหนดความกว้างและความสูง
             />  
           <span>
-            <span style={{ display: 'block',fontSize: '20px',fontWeight: 'bold'  }}>Practice</span>
+            <span style={{ display: 'block',fontSize: '20px',fontWeight: 'bold'  }}>Question</span>
           </span>      
           </a>
 

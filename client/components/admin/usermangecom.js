@@ -36,17 +36,17 @@ function usermangecom() {
     // ตรวจสอบว่า selectedUser มีค่าหรือไม่
     if (!user_id) {
       // แสดงข้อความแจ้งเตือน
-      Swal.fire('กรุณาเลือกผู้ใช้ที่ต้องการลบก่อน', '', 'warning');
+      Swal.fire('Please select a user to delete', '', 'warning');
       return;
     }
 
     Swal.fire({
-      title: 'ต้องการลบข้อมูลผู้ใช้',
-      text: 'ต้องการลบข้อมูลผู้ใช้หรือไม่',
+      title: 'Delete user',
+      text: 'Are you sure you want to delete this user?',
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonText: 'ใช่, ลบ',
-      cancelButtonText: 'ยกเลิก',
+      confirmButtonText: 'Delete',
+      cancelButtonText: 'Cancel',
     }).then(async (result) => {
       if (result.isConfirmed) {
         // ลบผู้ใช้จาก database
@@ -59,7 +59,7 @@ function usermangecom() {
           // อัปเดตรายการผู้ใช้หลังจากลบ
           setUsers(users.filter(user => user.user_id !== user_id));
         } else {
-          Swal.fire('เกิดข้อผิดพลาดในการลบข้อมูล', '', 'error');
+          Swal.fire('Error deleting user', '', 'error');
         }
       }
     });
@@ -72,13 +72,13 @@ function usermangecom() {
   
     // ตรวจสอบว่า selectedUser มีค่าหรือไม่
     if (!selectedUser) {
-      Swal.fire('กรุณาเลือกผู้ใช้ที่ต้องการแก้ไขก่อน', '', 'warning');
+      Swal.fire('Please fill in all required fields', '', 'warning');
       return;
     }
   
     // ตรวจสอบว่า username และ password ไม่ว่าง
     if (!selectedUser.username || !selectedUser.password) {
-      Swal.fire('กรุณากรอกข้อมูลครบถ้วน', '', 'error');
+      Swal.fire('Please fill in all required fields', '', 'error');
       return;
     }
   
@@ -91,7 +91,7 @@ function usermangecom() {
     if (response.status === 200) {
       Swal.fire({
         icon: 'success',
-        title: 'ข้อมูลได้ทำการบันทึกเรียบร้อย',
+        title: 'Success!',
         showConfirmButton: false,
         timer: 1500
       })
@@ -100,7 +100,7 @@ function usermangecom() {
         window.location.reload();
      }, 1500);
     } else {
-      alert('เกิดข้อผิดพลาดในการบันทึกข้อมูล');
+      alert('Error!');
     }
   };
   
@@ -109,7 +109,7 @@ function usermangecom() {
   return (
     <div className="report-component card  bg-base-100 shadow-xl  ">
       <div className="reporttop card  bg-primary  flex justify-center">
-                    <h2 className="  text-base-100  ">User</h2>                    
+            <h2 className="  text-base-100  ">USER</h2>                    
        </div>
       <div className="overflow-x-auto">
         <table className="table table-zebra">
@@ -131,50 +131,48 @@ function usermangecom() {
                   <td>{user.username}</td>
                   <td>{user.email}</td>
                   <td>
-                    <button className="btn btn-warning" onClick={() => handleClickEdit(user)}>เลือก</button>
-                    <button className="btn btn-error" onClick={handleClickDelete}>ลบ</button>
+                    <button className="btn btn-warning" onClick={() => handleClickEdit(user)}>SELECT</button>
+                    <button className="btn btn-error" onClick={handleClickDelete}>DELETE</button>
                   </td>
                 </tr>
               ))}
           </tbody>
         </table>
       </div>
-      <div className="card  grid-cols-1 mb-5">
-          <div className="reporttop card  bg-primary  flex justify-center">
-              <h2 className="  text-base-100  ">Edit</h2>                    
+      <div className="card  grid-cols-1  ">
+          <div className="reporttop card  bg-primary  flex justify-center mt-3">
+              <h2 className="  text-base-100  ">EDIT</h2>                    
           </div>
-       
           <form className="mt-5 grid grid-cols-2" onSubmit={handleSubmit}>
-
           <div className="ml-5">
             <label className="label">
               <span className="label-text">ID</span>
             </label>
-            <input type="text" placeholder="รหัสผู้ใช้" className="input input-bordered w-full max-w-xs" value={selectedUser?.user_id || ""} readOnly />
+            <input type="text" placeholder="ID" className="input input-bordered w-full max-w-xs" value={selectedUser?.user_id || ""} readOnly />
             </div>
 
             <div className="ml-5">
             <label className="label">
               <span className="label-text">Email</span>
             </label>
-            <input type="text" placeholder="อีเมล" className="input input-bordered w-full max-w-xs" value={selectedUser?.email || ""} readOnly />
+            <input type="text" placeholder="Email" className="input input-bordered w-full max-w-xs" value={selectedUser?.email || ""} readOnly />
             </div>
 
             <div className="ml-5">
             <label className="label">
               <span className="label-text">Username</span>
             </label>
-            <input type="text" placeholder="ชื่อผู้ใช้" className="input input-bordered w-full max-w-xs" name="username" value={selectedUser?.username || ""} onChange={handleInputChange} />
+            <input type="text" placeholder="Username" className="input input-bordered w-full max-w-xs" name="username" value={selectedUser?.username || ""} onChange={handleInputChange} />
             </div>
 
             <div className="ml-5">
             <label className="label">
               <span className="label-text">Password</span>
             </label>
-            <input type="text" placeholder="รหัสผ่าน" className="input input-bordered w-full max-w-xs" name="password" value={selectedUser?.password || ""} onChange={handleInputChange} />
+            <input type="text" placeholder="Password" className="input input-bordered w-full max-w-xs" name="password" value={selectedUser?.password || ""} onChange={handleInputChange} />
             </div>
           
-          <button className="btn btn-success mt-5 col-span-2" type="submit">บันทึก</button>
+          <button className="btn btn-success mt-5 col-span-2" type="submit">SAVE</button>
           </form>
       </div>
     </div>

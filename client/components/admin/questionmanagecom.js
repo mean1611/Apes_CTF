@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 
-function QuestionManagement() {
+function QuestionManagementcom() {
   const [questions, setQuestions] = useState([]);
   const [selectedQuestion, setSelectedQuestion] = useState(null);
   const [newQuestion, setNewQuestion] = useState({
@@ -13,7 +13,8 @@ function QuestionManagement() {
     score: 0,
     question_category_id: "1", // เริ่มต้นเป็น "1"
   });
-
+  const [activeTab, setActiveTab] = useState("edit");
+  
   const getQuestions = async () => {
     try {
       const result = await axios.get("http://localhost:8080/api/question");
@@ -59,7 +60,7 @@ function QuestionManagement() {
       text: "Are you sure you want to delete this question?",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonText: "Yes, delete",
+      confirmButtonText: "Delete",
       cancelButtonText: "Cancel",
     }).then(async (result) => {
       if (result.isConfirmed) {
@@ -144,16 +145,19 @@ function QuestionManagement() {
         Swal.fire("Question data saved successfully", "", "success");
         window.location.reload();
       } else {
-        Swal.fire("Error saving question data", "", "error");
+        Swal.fire("Please fill in all required fields", "", "warning");
       }
     } catch (error) {
-      console.error("Error saving question data:", error);
-      Swal.fire("Error saving question data", "", "error");
+      console.error("Error saving question data:", "error");
+      Swal.fire("Please fill in all required fields", "", "warning");
     }
   }
 
   return (
-    <div>
+    <div className="report-component card  bg-base-100 shadow-xl  ">
+    <div className="reporttop card  bg-primary  flex justify-center">
+          <h2 className="  text-base-100  ">QUESTION</h2>                    
+     </div>
       <div className="overflow-x-auto">
         <table className="table table-zebra">
           <thead>
@@ -180,7 +184,7 @@ function QuestionManagement() {
                   <td>{question.score}</td>
                   <td>{question.question_category_id}</td>
                   <td>
-                    <button className="btn btn-warning" onClick={() => handleClickEdit(question)}>Edit</button>
+                    <button className="btn btn-warning" onClick={() => handleClickEdit(question)}>SELECT</button>
                     <button className="btn btn-error" onClick={handleClickDelete}>Delete</button>
                   </td>
                 </tr>
@@ -188,18 +192,76 @@ function QuestionManagement() {
           </tbody>
         </table>
       </div>
-      <div className="card">
-        <div className="card-header">
-          Edit Question
+
+      <div className="report-component card  bg-base-100 shadow-xl mt-3 ">
+        <div className="reporttop card  bg-primary  grid grid-cols-2 ">
+        <a
+          className={`tab tab-bordered  ${activeTab === "edit" ? "tab-active" : ""}`}
+          onClick={() => setActiveTab("edit")}
+        >
+          EDIT
+        </a> 
+        <a
+          className={`tab tab-bordered ${activeTab === "create" ? "tab-active" : ""}`}
+          onClick={() => setActiveTab("create")}
+        >
+          CREATE
+        </a>                    
         </div>
-        <div className="card-body">
-          <form onSubmit={handleSubmit}>
+      
+      {activeTab === "edit" && (
+
+      <div className="card ">
+        <div className="reporttop card    flex justify-center ">
+              <h2 className="  text-primary  ">EDIT</h2>                    
+          </div>
+          <form className=" grid grid-cols-4 " onSubmit={handleSubmit}>
+          <div className="ml-5">
+            <label className="label">
+              <span className="label-text">Question ID</span>
+            </label>
             <input type="text" placeholder="Question ID" className="input input-bordered w-full max-w-xs" value={selectedQuestion?.question_id || ""} readOnly />
+            </div>
+
+            <div className="ml-5">
+            <label className="label">
+              <span className="label-text">Title</span>
+            </label>
             <input type="text" placeholder="Title" className="input input-bordered w-full max-w-xs" name="question_title" value={selectedQuestion?.question_title || ""} onChange={handleInputChange} />
+            </div>
+
+            <div className="ml-5">
+            <label className="label">
+              <span className="label-text">Description</span>
+            </label>
             <input type="text" placeholder="Description" className="input input-bordered w-full max-w-xs" name="question_desc" value={selectedQuestion?.question_desc || ""} onChange={handleInputChange} />
+            </div>
+
+            <div className="ml-5">
+            <label className="label">
+              <span className="label-text">Answer</span>
+            </label>
             <input type="text" placeholder="Answer" className="input input-bordered w-full max-w-xs" name="answer" value={selectedQuestion?.answer || ""} onChange={handleInputChange} />
+            </div>
+
+            <div className="ml-5">
+            <label className="label">
+              <span className="label-text">Hint</span>
+            </label>
             <input type="text" placeholder="Hint" className="input input-bordered w-full max-w-xs" name="hint" value={selectedQuestion?.hint || ""} onChange={handleInputChange} />
+            </div>
+
+            <div className="ml-5">
+            <label className="label">
+              <span className="label-text">Score</span>
+            </label>
             <input type="number" placeholder="Score" className="input input-bordered w-full max-w-xs" name="score" value={selectedQuestion?.score || 0} onChange={handleInputChange} />
+            </div>
+
+            <div className="ml-5">
+            <label className="label">
+              <span className="label-text">Category</span>
+            </label>
             <select
               name="question_category_id"
               value={selectedQuestion?.question_category_id || ""}
@@ -212,21 +274,57 @@ function QuestionManagement() {
               <option value="4">Category 4</option>
               <option value="5">Category 5</option>
             </select>
-            <button className="btn btn-success ml-2" type="submit">Save</button>
+            </div>
+            <button className="btn btn-success  col-start-1 col-end-5  mt-3 " type="submit">Save</button>
           </form>
-        </div>
       </div>
-      <div className="card">
-        <div className="card-header">
-          Create Question
+      )}
+
+      {activeTab === "create" && (
+      <div className="card grid-cols-1">
+      <div className="reporttop card    flex justify-center ">
+            <h2 className="  text-primary  ">CREATE</h2>                    
         </div>
-        <div className="card-body">
-          <form>
+          <form className=" grid grid-cols-4 ">
+          <div className="ml-5">
+            <label className="label">
+              <span className="label-text">Title</span>
+            </label>
             <input type="text" placeholder="Title" className="input input-bordered w-full max-w-xs" name="question_title" value={newQuestion.question_title} onChange={handleNewQuestionChange} />
+            </div>
+
+            <div className="ml-5">
+            <label className="label">
+              <span className="label-text">Description</span>
+            </label>
             <input type="text" placeholder="Description" className="input input-bordered w-full max-w-xs" name="question_desc" value={newQuestion.question_desc} onChange={handleNewQuestionChange} />
+            </div>
+
+            <div className="ml-5">
+            <label className="label">
+              <span className="label-text">Answer</span>
+            </label>
             <input type="text" placeholder="Answer" className="input input-bordered w-full max-w-xs" name="answer" value={newQuestion.answer} onChange={handleNewQuestionChange} />
+            </div>
+
+            <div className="ml-5">
+            <label className="label">
+              <span className="label-text">Hint</span>
+            </label>
             <input type="text" placeholder="Hint" className="input input-bordered w-full max-w-xs" name="hint" value={newQuestion.hint} onChange={handleNewQuestionChange} />
+            </div>
+
+            <div className="ml-5">
+            <label className="label">
+              <span className="label-text">Score</span>
+            </label>
             <input type="number" placeholder="Score" className="input input-bordered w-full max-w-xs" name="score" value={newQuestion.score} onChange={handleNewQuestionChange} />
+            </div>
+
+            <div className="ml-5">
+            <label className="label">
+              <span className="label-text">Category</span>
+            </label>
             <select
               name="question_category_id"
               value={newQuestion.question_category_id}
@@ -239,12 +337,15 @@ function QuestionManagement() {
               <option value="4">Category 4</option>
               <option value="5">Category 5</option>
             </select>
-            <button className="btn btn-success ml-2" type="button" onClick={handleCreateQuestion}>Create</button>
+            </div>
+            <button className="btn btn-success col-start-1 col-end-5  mt-3" type="button" onClick={handleCreateQuestion}>Create</button>
           </form>
         </div>
-      </div>
+       )}
     </div>
+    </div>
+    
   );
 }
 
-export default QuestionManagement;
+export default QuestionManagementcom;
