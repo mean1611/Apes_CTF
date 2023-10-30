@@ -89,9 +89,16 @@ function usermangecom() {
   
     // ตรวจสอบสถานะการตอบกลับ
     if (response.status === 200) {
-      alert('บันทึกข้อมูลเรียบร้อย');
+      Swal.fire({
+        icon: 'success',
+        title: 'ข้อมูลได้ทำการบันทึกเรียบร้อย',
+        showConfirmButton: false,
+        timer: 1500
+      })
       // รีโหลดหน้า
-      window.location.reload();
+      setTimeout(function(){
+        window.location.reload();
+     }, 1500);
     } else {
       alert('เกิดข้อผิดพลาดในการบันทึกข้อมูล');
     }
