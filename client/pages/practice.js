@@ -52,15 +52,15 @@ function index() {
   function getCategoryName(categoryId) {
     switch (categoryId) {
       case 1:
-        return "General Skill";
+        return <h1 className="text-cate text-green-600">General Skills</h1>;
       case 2:
-        return "Cryptography";
+        return <h1 className="text-cate text-blue-600">Cryptography</h1>;
       case 3:
-        return "Web Exploitation";
+        return <h1 className="text-cate text-orange-600">Web Exploitation</h1>;
       case 4:
         return "Forensics";
       case 5:
-        return "Reverse Engineering";
+        return <h1 className="text-cate text-pink-600">Reverse Engineering</h1>;
       default:
         return "Unknown";
     }
@@ -89,12 +89,12 @@ function index() {
         <div className="col-start-1 col-end-2">
           <Categoryfilter onSelectCategory={setSelectedCategory} />
         </div>
-        <div className="place-items-center col-start-2 col-end-5">
+        <div className=" card-container place-items-center mt-5 ">
           {questions.map((question) => (
-            <div key={question.question_id} className="card w-96 bg-base-100 shadow-xl mb-4">
-              <div className="card-body">
+            <div key={question.question_id} className="card-question card w-96   mb-10 mr-5">
+              <div className="card-body w-full">
                 <h2 className="card-title">
-                  <span className="text-black">{question.question_title}</span>
+                  <span className="text-black mt-12">{question.question_title}</span>
                 </h2>
                 <p className="text-black">Score:{question.score}</p>
                 <div className="card-actions justify-between">
@@ -102,7 +102,7 @@ function index() {
                   {getCategoryName(question.question_category_id)}
                 </div>
                   <button
-                    className="btn btn-primary"
+                    className="btn btn-primary mb-6"
                     onClick={() => handlePlayClick(question)}
                   >
                     Play
