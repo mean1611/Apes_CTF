@@ -425,21 +425,19 @@
 }
 
 .practice-body {
-
+  font-family: 'Goldman', cursive;
   background-size: 100% 100%; 
   background-repeat: no-repeat; 
   background-color: #232140; 
   height: 750px;
 }
 
-.practice-body img{
-  width: 50px;
-  height: 50px;
+.practice-button{
+  width: 225px;
+  height: 200px;
 }
-.category-btn{
-  width: 300px;
-  height: 300px;
-}
+
+
 
 .practice-body h1{
   font-size: 20px;
@@ -471,4 +469,46 @@
   background-color: #ffffff; /* เปลี่ยนสีพื้นหลังของแท็บที่ถูกเลือกเป็นสีเขียว */
   color: #232140; /* เปลี่ยนสีข้อความในแท็บที่ถูกเลือกเป็นสีขาว */
   /* เพิ่มสไตล์อื่น ๆ ตามที่คุณต้องการ */
+}
+
+.questionunderline{
+  height: 5px;
+  background-color: #989898;
+
+}
+
+.hintbutton{
+  background-color: #6F64B1;
+}
+
+.submitbutton{
+  background-color: #6484B1;
+}
+
+.hint-text{
+  font-family: 'IBM Plex Sans Thai', sans-serif;
+}
+
+.desc-text{
+  font-family: 'IBM Plex Sans Thai', sans-serif;
+}
+
+.popup-card {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
 }
