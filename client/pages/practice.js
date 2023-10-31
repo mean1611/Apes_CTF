@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Navbaruser from "../components/user/navbarUser";
-
+import Navbaruser from "../components/user/navbarUser.js";
+import Categoryfilter from "../components/user/categoryFilter.js";
+import Questioncom from "../components/user/questionCom.js";
 function index() {
   const [message, setMessage] = useState("Loading")
 
@@ -35,35 +36,16 @@ function index() {
               /> 
             </div>
         </div>
-        
-        <div className="practice-body grid grid-cols-3 gap-4 place-items-center text-base-100">
-            <a href="/generalskill" className="category-btn btn btn-ghost text-primary" >
-              <img src="/images/skills.png" />  
-              <h1>General Skills</h1>
-            </a>
-            
-            <a href="/cryptography" className="category-btn btn btn-ghost text-primary" >
-              <img src="/images/cryptography.png" />  
-              <h1>Cryptography</h1>
-            </a>
+        <div className="learn-body grid grid-cols-4  bg-primary text-base-100">
+          <div className="col-start-1 col-end-2">
+            <Categoryfilter/>
+          </div>
+          <div className=" place-items-center col-start-2 col-end-5">
+            <Questioncom/>
 
-            <a href="/webmobile" className="category-btn btn btn-ghost text-primary" >
-              <img src="/images/mobile.png" />  
-              <h1>Web/Mobile <br/> Exploitation</h1>
-            </a>
-
-            <a href="/forensics" className="category-btn btn btn-ghost text-primary" >
-              <img src="/images/forensics.png" />  
-              <h1>Forensics</h1>
-            </a>
-
-            <a href="/reverseeng" className="category-btn btn btn-ghost text-primary" >
-              <img src="/images/reverseengineering.png" />  
-              <h1>Reverse <br/> Engineering</h1>
-            </a>
+          </div>
         </div>
-  </div>
-    
+    </div>
   );
 }
 

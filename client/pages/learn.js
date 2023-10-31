@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../components/home/navbar.js";
-import Footer from "@/components/home/footer.js";
 import Menulearn from "@/components/home/menu-learn.js";
 function index() {
   const [message, setMessage] = useState("Loading")
