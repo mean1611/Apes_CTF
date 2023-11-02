@@ -486,7 +486,7 @@
 }
 
 .hint-text{
-  font-family: 'IBM Plex Sans Thai', sans-serif;
+  font-family: 'Goldman', cursive;
 }
 
 .desc-text{
@@ -511,6 +511,9 @@
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  width: 375px;
+  height: 300px;
+  
 }
 
 .card-container {
@@ -530,4 +533,14 @@
 
 .text-cate{
   font-family: 'Goldman', cursive;
+}
+
+.modal-box{
+  background-size: 100% 100%; 
+  font-family: 'Goldman', cursive;
+
+}
+
+.question-content{
+    font-size: 20px;
 }
