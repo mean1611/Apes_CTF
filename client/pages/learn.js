@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../components/home/navbar.js";
 import Menulearn from "@/components/home/menu-learn.js";
+
 function index() {
   const [message, setMessage] = useState("Loading")
 
@@ -153,7 +154,7 @@ function index() {
                     <br/> ● พัฒนาความคิดสร้างสรรค์: การเล่น CTF จะช่วยให้ผู้เข้าแข่งขันได้พัฒนาความคิดสร้างสรรค์ในการหาวิธีถอดรหัสและวิเคราะห์โปรแกรมหรือระบบ
                   </p>
               <h2>สำหรับผู้ที่สนใจเล่น CTF ในหมวดหมู่ Reverse Engineering แนะนำให้เริ่มต้นจากโจทย์พื้นฐานก่อน จากนั้นค่อย ๆ พัฒนาทักษะและความรู้ไปทีละขั้น การเล่น CTF เป็นประจำจะช่วยให้ผู้เข้าแข่งขันพัฒนาทักษะและความรู้ด้านความมั่นคงปลอดภัยไซเบอร์ได้อย่างมีประสิทธิภาพ</h2>
-              
+
               </div>
             </div>
         </div>
