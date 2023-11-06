@@ -268,11 +268,11 @@ function QuestionManagementcom() {
               onChange={handleInputChange}
               className="input input-bordered w-full max-w-xs"
             >
-              <option value="1">Category 1</option>
-              <option value="2">Category 2</option>
-              <option value="3">Category 3</option>
-              <option value="4">Category 4</option>
-              <option value="5">Category 5</option>
+              <option value="1">Genaral Skill</option>
+              <option value="2">Cyrptograhpy</option>
+              <option value="3">Web Exploitation</option>
+              <option value="4">Forensics</option>
+              <option value="5">Reverse Engineering</option>
             </select>
             </div>
             <button className="btn btn-success  col-start-1 col-end-5  mt-3 " type="submit">Save</button>
@@ -331,11 +331,11 @@ function QuestionManagementcom() {
               onChange={handleNewQuestionChange}
               className="input input-bordered w-full max-w-xs"
             >
-              <option value="1">Category 1</option>
-              <option value="2">Category 2</option>
-              <option value="3">Category 3</option>
-              <option value="4">Category 4</option>
-              <option value="5">Category 5</option>
+              <option value="1">Genaral Skill</option>
+              <option value="2">Cyrptograhpy</option>
+              <option value="3">Web Exploitation</option>
+              <option value="4">Forensics</option>
+              <option value="5">Reverse Engineering</option>
             </select>
             </div>
             <button className="btn btn-success col-start-1 col-end-5  mt-3" type="button" onClick={handleCreateQuestion}>Create</button>
