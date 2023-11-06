@@ -71,7 +71,6 @@ function index() {
 
   return (
     <div>
-      <Navbaruser />
       <div className="banner-practice">
         <div className="practice-column">
           <div className="practice-banner-text">
