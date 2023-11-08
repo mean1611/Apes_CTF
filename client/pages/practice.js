@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Navbaruser from "../components/user/navbarUser.js";
+import Navbar from "@/components/home/navbar.js";
 import Categoryfilter from "../components/user/categoryFilter.js";
 import Swal from 'sweetalert2';
 
@@ -71,6 +71,7 @@ function index() {
 
   return (
     <div>
+      <Navbar/>
       <div className="banner-practice">
         <div className="practice-column">
           <div className="practice-banner-text">
