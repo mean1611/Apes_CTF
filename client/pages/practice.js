@@ -77,12 +77,12 @@ function index() {
           <div className="practice-banner-text">
             <h1>Practice</h1>
             <p>เพราะความรู้เป็นสิ่งสำคัญ</p>
-            <p>ไม่ยากอย่างที่คิด</p>
+            <p>และไม่ยากอย่างที่คิด</p>
           </div>
         </div>
         <div className="practice-column">
           <img
-            src="/images/practice-pageicon.png"
+            src="/images/hackerpt.png"
             alt="Banner Image"
             className="banner-image"
           />
