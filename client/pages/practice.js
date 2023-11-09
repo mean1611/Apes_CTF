@@ -35,6 +35,14 @@ function index() {
         confirmButtonText: 'ตกลง'
       });
     }
+    setAnswer("");
+  };
+
+  const handleKeyPress = (event) => {
+    // ถ้าผู้ใช้กดปุ่ม Enter (keyCode คือ 13) และ input ไม่ว่าง
+    if (event.key === "Enter" && answer.trim() !== "") {
+      handleSubmit();
+    }
   };
 
   useEffect(() => {
@@ -140,6 +148,7 @@ function index() {
               className="input input-bordered place-items-center mt-2 mb-2 3 text-black row-start-6 col-start-1 col-end-3"
               value={answer}
               onChange={(e) => setAnswer(e.target.value)}
+              onKeyPress={handleKeyPress}
             />
             <button
               className="submitbutton btn  text-base-100 row-start-6 col-start-3 col-end-4 mt-2 mb-2 "
@@ -170,6 +179,7 @@ function index() {
             >
               X
             </button>
+            {/*<a><a href="https://drive.google.com/uc?export=download&id=1ZNNlA4pq--cW6wPaW_gHdoCQ_hllbRTw" target="_blank" rel="noopener noreferrer">ดาวน์โหลดไฟล์</a></a>*/}
           </div>
         </div>
       </div>
