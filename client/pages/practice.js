@@ -78,7 +78,7 @@ function index() {
   }
 
   return (
-    <div>
+    <div className="bg-primary">
       <Navbaruser/>
       <div className="banner-practice">
         <div className="practice-column">

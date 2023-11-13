@@ -22,13 +22,10 @@ function index() {
   }, [])
 
   return (
-    <div >
+    <div className="" >
       <Navbaradmin  />
-      <div className="userreport  grid grid-cols-4">
-        <div className="mt-10 col-1">
-        <Profileadmin />
-        </div>
-       <div className="col-2 col-span-3">
+      <div className="userreport  ">
+       <div className="justify">
         <QuestionManagementcom />
         </div>
       </div>
