@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Navbaruser from "../components/user/navbarUser.js";
+import Navbaruser from "@/components/user/navbarUser.js";
 import Categoryfilter from "../components/user/categoryFilter.js";
 import Swal from 'sweetalert2';
 
@@ -34,6 +34,14 @@ function index() {
         icon: 'error',
         confirmButtonText: 'ตกลง'
       });
+    }
+    setAnswer("");
+  };
+
+  const handleKeyPress = (event) => {
+    // ถ้าผู้ใช้กดปุ่ม Enter (keyCode คือ 13) และ input ไม่ว่าง
+    if (event.key === "Enter" && answer.trim() !== "") {
+      handleSubmit();
     }
   };
 
@@ -71,17 +79,18 @@ function index() {
 
   return (
     <div>
+      <Navbaruser/>
       <div className="banner-practice">
         <div className="practice-column">
           <div className="practice-banner-text">
             <h1>Practice</h1>
             <p>เพราะความรู้เป็นสิ่งสำคัญ</p>
-            <p>ไม่ยากอย่างที่คิด</p>
+            <p>และไม่ยากอย่างที่คิด</p>
           </div>
         </div>
         <div className="practice-column">
           <img
-            src="/images/practice-pageicon.png"
+            src="/images/hackerpt.png"
             alt="Banner Image"
             className="banner-image"
           />
@@ -135,10 +144,11 @@ function index() {
             <div className="questionunderline card  row-start-5 col-start-1 col-end-4"></div>
             <input
               type="text"
-              placeholder="Apes{FLAG}"
+              placeholder="APESCTF{FLAG}"
               className="input input-bordered place-items-center mt-2 mb-2 3 text-black row-start-6 col-start-1 col-end-3"
               value={answer}
               onChange={(e) => setAnswer(e.target.value)}
+              onKeyPress={handleKeyPress}
             />
             <button
               className="submitbutton btn  text-base-100 row-start-6 col-start-3 col-end-4 mt-2 mb-2 "
@@ -169,6 +179,7 @@ function index() {
             >
               X
             </button>
+            {/*<a><a href="https://drive.google.com/uc?export=download&id=1ZNNlA4pq--cW6wPaW_gHdoCQ_hllbRTw" target="_blank" rel="noopener noreferrer">ดาวน์โหลดไฟล์</a></a>*/}
           </div>
         </div>
       </div>
