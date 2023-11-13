@@ -11,9 +11,9 @@ function QuestionManagementcom() {
     answer: "",
     hint: "",
     score: 0,
-    question_category_id: "1", // เริ่มต้นเป็น "1"
+    question_category_id: "0", // เริ่มต้นเป็น "1"
   });
-  const [activeTab, setActiveTab] = useState("edit");
+  const [activeTab, setActiveTab] = useState("create");
   
   const getQuestions = async () => {
     try {
@@ -30,6 +30,11 @@ function QuestionManagementcom() {
 
   const handleClickEdit = (question) => {
     setSelectedQuestion(question);
+    setActiveTab("edit")
+  }
+
+  const handleClickCancel = (question) => {
+    setActiveTab("create")
   }
 
   const handleInputChange = (e) => {
@@ -48,8 +53,7 @@ function QuestionManagementcom() {
   }
 
   const handleClickDelete = () => {
-    const question_id = selectedQuestion?.question_id;
-
+  const question_id = selectedQuestion?.question_id;
     if (!question_id) {
       Swal.fire("Please select a question to delete", "", "warning");
       return;
@@ -103,7 +107,7 @@ function QuestionManagementcom() {
           answer: "",
           hint: "",
           score: 0,
-          question_category_id: "1", // เริ่มต้นเป็น "1"
+          question_category_id: "0", // เริ่มต้นเป็น "1"
         });
         getQuestions();
       } else {
@@ -143,7 +147,9 @@ function QuestionManagementcom() {
 
       if (response.status === 200) {
         Swal.fire("Question data saved successfully", "", "success");
-        window.location.reload();
+        setTimeout(function(){
+          window.location.reload();
+       }, 1500);
       } else {
         Swal.fire("Please fill in all required fields", "", "warning");
       }
@@ -184,8 +190,8 @@ function QuestionManagementcom() {
                   <td>{question.score}</td>
                   <td>{question.question_category_id}</td>
                   <td>
-                    <button className="btn btn-warning" onClick={() => handleClickEdit(question)}>SELECT</button>
-                    <button className="btn btn-error" onClick={handleClickDelete}>Delete</button>
+                    <button className="btn btn-warning w-24" onClick={() => handleClickEdit(question)}>EDIT</button>
+
                   </td>
                 </tr>
               ))}
@@ -193,30 +199,15 @@ function QuestionManagementcom() {
         </table>
       </div>
 
-      <div className="report-component card  bg-base-100 shadow-xl mt-3 ">
-        <div className="reporttop card  bg-primary  grid grid-cols-2 ">
-        <a
-          className={`tab tab-bordered  ${activeTab === "edit" ? "tab-active" : ""}`}
-          onClick={() => setActiveTab("edit")}
-        >
-          EDIT
-        </a> 
-        <a
-          className={`tab tab-bordered ${activeTab === "create" ? "tab-active" : ""}`}
-          onClick={() => setActiveTab("create")}
-        >
-          CREATE
-        </a>                    
-        </div>
-      
-      {activeTab === "edit" && (
+      <div className="report-component card  bg-base-100 shadow-xl  ">
 
-      <div className="card ">
-        <div className="reporttop card    flex justify-center ">
-              <h2 className="  text-primary  ">EDIT</h2>                    
+      {activeTab === "edit" && (
+          <div className="card grid grid-rows-1 grid-cols-4 ">
+          <form className="grid grid-cols-4 row-start-1 col-span-4 " onSubmit={handleSubmit}>
+            <div className="reporttop card row-start-1 col-span-4 flex justify-center ">
+            <h2 className="card text-base-100 bg-primary">EDIT</h2>
           </div>
-          <form className=" grid grid-cols-4 " onSubmit={handleSubmit}>
-          <div className="ml-5">
+          <div className="ml-5 row-start-2">
             <label className="label">
               <span className="label-text">Question ID</span>
             </label>
@@ -268,25 +259,38 @@ function QuestionManagementcom() {
               onChange={handleInputChange}
               className="input input-bordered w-full max-w-xs"
             >
-              <option value="1">Category 1</option>
-              <option value="2">Category 2</option>
-              <option value="3">Category 3</option>
-              <option value="4">Category 4</option>
-              <option value="5">Category 5</option>
+              <option value="1">General Skills</option>
+              <option value="2">Cryptography</option>
+              <option value="3">Web Exploitation</option>
+              <option value="4">Forensics</option>
+              <option value="5">Reverse Engineering</option>
             </select>
             </div>
-            <button className="btn btn-success  col-start-1 col-end-5  mt-3 " type="submit">Save</button>
+            
           </form>
-      </div>
+          <div className="flex  items-center grid grid-cols-3 row-start-2 col-start-2 col-span-2 mt-5 mb-2 gap-4">
+            <button className="btn btn-success " onClick={handleSubmit} type="submit">
+            SAVE
+            </button>
+            
+            <button className="btn btn-error " onClick={handleClickDelete}>
+            DELETE
+            </button>
+
+            <button className="btn bg-base-300 " onClick={handleClickCancel} type="button">
+              CANCEL
+            </button>
+  </div>
+</div>
       )}
 
       {activeTab === "create" && (
-      <div className="card grid-cols-1">
-      <div className="reporttop card    flex justify-center ">
-            <h2 className="  text-primary  ">CREATE</h2>                    
-        </div>
-          <form className=" grid grid-cols-4 ">
-          <div className="ml-5">
+      <div className="card grid grid-cols-1 grid-cols-4">
+        <form className="grid grid-cols-4 row-start-1 col-span-4 ">
+          <div className="reporttop card row-start-1 col-span-4 flex justify-center">
+              <h2 className="card text-base-100 bg-primary">CREATE</h2>                    
+          </div>
+          <div className="ml-5 row-start-2">
             <label className="label">
               <span className="label-text">Title</span>
             </label>
@@ -331,15 +335,31 @@ function QuestionManagementcom() {
               onChange={handleNewQuestionChange}
               className="input input-bordered w-full max-w-xs"
             >
-              <option value="1">Category 1</option>
-              <option value="2">Category 2</option>
-              <option value="3">Category 3</option>
-              <option value="4">Category 4</option>
-              <option value="5">Category 5</option>
+              <option value="0">Select Category</option>
+              <option value="1">General Skills</option>
+              <option value="2">Cryptography</option>
+              <option value="3">Web Exploitation</option>
+              <option value="4">Forensics</option>
+              <option value="5">Reverse Engineering</option>
             </select>
+            
             </div>
-            <button className="btn btn-success col-start-1 col-end-5  mt-3" type="button" onClick={handleCreateQuestion}>Create</button>
-          </form>
+            </form>
+            <div className="flex  items-center grid grid-cols-2 row-start-2 col-start-2 col-span-2 mt-5 mb-2">
+              <button className="btn btn-success " type="button" onClick={handleCreateQuestion}>
+                Create
+              </button>
+              <button className="btn bg-base-300 ml-2" type="button" onClick={() => setNewQuestion({
+              question_title: "",
+              question_desc: "",
+              answer: "",
+              hint: "",
+              score: 0,
+              question_category_id: "1",
+            })}>
+              Clear
+            </button>
+            </div>
         </div>
        )}
     </div>

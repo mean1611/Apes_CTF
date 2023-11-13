@@ -131,19 +131,20 @@ function usermangecom() {
                   <td>{user.username}</td>
                   <td>{user.email}</td>
                   <td>
-                    <button className="btn btn-warning" onClick={() => handleClickEdit(user)}>SELECT</button>
-                    <button className="btn btn-error" onClick={handleClickDelete}>DELETE</button>
+                    <button className="btn btn-warning w-24" onClick={() => handleClickEdit(user)}>EDIT</button>
+                    
                   </td>
                 </tr>
               ))}
           </tbody>
         </table>
       </div>
-      <div className="card  grid-cols-1  ">
-          <div className="reporttop card  bg-primary  flex justify-center mt-3">
-              <h2 className="  text-base-100  ">EDIT</h2>                    
+      <div className="card grid grid-rows-1 grid-cols-4 ">
+          
+          <form className="grid grid-cols-4 row-start-1 col-span-4" >
+          <div className="reporttop card row-start-1 col-span-4 flex justify-center ">
+            <h2 className="card text-base-100 bg-primary">EDIT</h2>
           </div>
-          <form className="mt-5 grid grid-cols-2" onSubmit={handleSubmit}>
           <div className="ml-5">
             <label className="label">
               <span className="label-text">ID</span>
@@ -172,9 +173,12 @@ function usermangecom() {
             <input type="text" placeholder="Password" className="input input-bordered w-full max-w-xs" name="password" value={selectedUser?.password || ""} onChange={handleInputChange} />
             </div>
           
-          <button className="btn btn-success mt-5 col-span-2" type="submit">SAVE</button>
           </form>
-      </div>
+          <div className="flex  items-center grid grid-cols-3 row-start-2 col-start-2 col-span-3 mt-5 mb-2 gap-4">
+            <button className="btn btn-success" type="submit" onClick={handleSubmit}>SAVE</button>
+            <button className="btn btn-error" onClick={handleClickDelete}>DELETE</button>
+          </div>
+          </div>
     </div>
   );
 }
