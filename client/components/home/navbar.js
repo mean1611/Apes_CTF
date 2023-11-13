@@ -24,7 +24,7 @@ function Navbar() {
             <span style={{ display: 'block',fontSize: '20px',fontWeight: 'bold'  }}>Learn</span>
           </span>      
           </a>
-          <a className="btn btn-ghost" href="/practice">
+          <a className="btn btn-ghost" href="/login">
           <img
             src="/images/practice.png"
             style={{ width: '50px', height: '40px' }} // กำหนดความกว้างและความสูง
@@ -34,12 +34,12 @@ function Navbar() {
           </span>      
           </a>
         </div>
-        {/*<a href="/login" className="flex-none">
+        <a href="/login" className="flex-none">
           <button className="btn btn-ghost">Login</button>
         </a>
         <a href="/signup" className="flex-none">
           <button className="btn btn bg-green-400">Join Now</button>
-        </a>*/}
+        </a>
       </nav>
     )
 }

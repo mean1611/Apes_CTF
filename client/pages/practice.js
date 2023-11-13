@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "@/components/home/navbar.js";
+import Navbaruser from "@/components/user/navbarUser.js";
 import Categoryfilter from "../components/user/categoryFilter.js";
 import Swal from 'sweetalert2';
 
@@ -79,7 +79,7 @@ function index() {
 
   return (
     <div>
-      <Navbar/>
+      <Navbaruser/>
       <div className="banner-practice">
         <div className="practice-column">
           <div className="practice-banner-text">
@@ -144,7 +144,7 @@ function index() {
             <div className="questionunderline card  row-start-5 col-start-1 col-end-4"></div>
             <input
               type="text"
-              placeholder="Apes{FLAG}"
+              placeholder="APESCTF{FLAG}"
               className="input input-bordered place-items-center mt-2 mb-2 3 text-black row-start-6 col-start-1 col-end-3"
               value={answer}
               onChange={(e) => setAnswer(e.target.value)}
