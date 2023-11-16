@@ -3,7 +3,7 @@ import React from "react";
 function  Navbaruser() {
 
     return (
-        <nav className="navbar bg-primary text-neutral-content fixed top-0 w-full z-10" >
+        <nav className="navbar  bg-primary text-neutral-content fixed top-0 w-full z-10" >
         <div className="flex-1 ">
           <a href="/" className="btn btn-ghost " >
           <img
