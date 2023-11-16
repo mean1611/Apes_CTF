@@ -1,24 +1,108 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
+import Swal from "sweetalert2";
 
-function  SendReport() {
+function SendReport() {
+  const [formData, setFormData] = useState({
+    title: "",
+    description: "",
+  });
 
-    return (
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    if (!formData.title || !formData.description) {
+      Swal.fire({
+        title: "Error!",
+        text: "Title and Description are required",
+        icon: "error",
+        confirmButtonText: "OK",
+      });
+      return;
+    }
+
+    const values = {
+      report_title: formData.title,
+      report_desc: formData.description,
+    };
+
+    try {
+      const response = await axios.post("http://localhost:8080/api/report", values);
+
+      if (response.status === 200) {
+        Swal.fire({
+          title: "Success!",
+          text: response.data.message,
+          icon: "success",
+          confirmButtonText: "OK",
+        });
+        setFormData({
+          title: "",
+          description: "",
+        });
+      } else {
+        Swal.fire({
+          title: "Warning!",
+          text: response.data.message,
+          icon: "warning",
+          confirmButtonText: "OK",
+        });
+      }
+    } catch (error) {
+      Swal.fire({
+        title: "Error!",
+        text: "An error occurred while processing your request",
+        icon: "error",
+        confirmButtonText: "OK",
+      });
+    }
+  };
+
+  const handleClearFields = () => {
+    setFormData({
+      title: "",
+      description: "",
+    });
+  };
+
+  return (
+    <div className="report-component card  bg-base-100 shadow-xl  ">
+      <div className="reporttop   bg-base-100  flex justify-center">
+        <h2 className="  text-base-100  "></h2>
+      </div>
+      <div className="report-bar card-body ">
+        <label className="label">
+          <h2 className="label-text ">Report</h2>
+        </label>
+        <input
+          type="text"
+          placeholder="Title"
+          className="input input-bordered w-full max-w-xs "
+          value={formData.title}
+          onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+        />
+        <label className="label">
+          <h2 className="label-text">Detail</h2>
+        </label>
+        <textarea
+          type="text"
+          placeholder="Detail"
+          className="report-detail  w-full h-full appearance-none block eounded-lg bg-base-100 border py-4 px-3 focus:outline-none   "
+          value={formData.description}
+          onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+        />
+        <div className="ml-auto">
+        <button className="btn  w-28 " onClick={handleClearFields}>
+          Clear
+        </button> 
+        <button className="btn bg-green-500 w-28 " onClick={handleSubmit}>
+          Submit
+        </button>
         
-            <div className="report-component card  bg-base-100 shadow-xl  ">
-                <div className="reporttop card  bg-primary  flex justify-center">
-                    <h2 className="  text-base-100  ">Report</h2>                    
-                </div>
-                    <div className="report-bar card-body ">
-                    <label className="label">
-                        <h2 className="label-text">Report</h2>
-                    </label>
-                        <input type="text" placeholder="Title" className="input input-bordered w-full max-w-xs " />
-                        <textarea type="text" placeholder="Detail" className="report-detail  w-full h-full appearance-none block eounded-lg bg-base-100 border py-4 px-3 focus:outline-none   " />
-                        <button className="btn bg-green-500">Submit</button>
-                    </div>
-            </div>
-    )
+        </div>
+      </div>
+    </div>
+  );
 }
 
-export default SendReport; 
-
+export default SendReport;

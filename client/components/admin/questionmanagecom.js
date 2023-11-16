@@ -73,6 +73,12 @@ function QuestionManagementcom() {
           if (response.status === 200) {
             setSelectedQuestion(null);
             setQuestions(questions.filter((question) => question.question_id !== question_id));
+            Swal.fire({
+              title: "Success!",
+              text: response.data.message,
+              icon: "success",
+              confirmButtonText: "OK",
+            });
           } else {
             Swal.fire("Error deleting question", "", "error");
           }

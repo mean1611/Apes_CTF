@@ -51,7 +51,12 @@ function usermangecom() {
       if (result.isConfirmed) {
         // ลบผู้ใช้จาก database
         const response = await axios.delete('http://localhost:8080/api/user/' + user_id);
-
+        Swal.fire({
+          title: "Success!",
+          text: response.data.message,
+          icon: "success",
+          confirmButtonText: "OK",
+        });
         if (response.status === 200) {
           // ลบข้อมูลออกจาก state
           setSelectedUser(null);
