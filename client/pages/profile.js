@@ -1,8 +1,10 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector } from 'react-redux';
 
 function Profile() {
-    const user = useSelector((state) => state.login.user);
+  const user = useSelector(state => state.login.user);
+
+  // แสดงค่า username ใน Console
+  console.log("Username from Redux store:", user && user.username);
 
   return (
     <div>
@@ -11,7 +13,7 @@ function Profile() {
         <div>
           <p>Username: {user.username}</p>
           <p>Email: {user.email}</p>
-          {/* แสดงข้อมูลผู้ใช้อื่น ๆ ที่คุณเก็บไว้ใน Redux store */}
+          {/* Add other user information here */}
         </div>
       )}
     </div>

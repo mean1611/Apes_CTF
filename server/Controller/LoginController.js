@@ -4,11 +4,12 @@ import prisma from "../DB/db.config.js";
 export const searchUser = async (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
-
+    const email = req.body.email;
     const user = await prisma.user.findFirst({
         where: {
             username: username,
             password: password,
+            enail: email,
         },
     });
 
