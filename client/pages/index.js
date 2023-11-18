@@ -11,8 +11,6 @@ import Getstart from "../components/home/getstart.js";
 function index() {
   const [message, setMessage] = useState("Loading");
   
-  const user = useSelector((state) => state.user); // ใช้ useSelector เพื่อดึงข้อมูลผู้ใช้จาก Redux store
-  const dispatch = useDispatch(); // ใช้ useDispatch เพื่อส่ง Action
 
   useEffect(() => {
     fetch("http://localhost:3000/api/home").then(
@@ -34,7 +32,6 @@ function index() {
       <Bodyjob />
       <Getstart />
       <Footer />
-      {user && <p>Welcome, {user.username}!</p>} {/* แสดงชื่อผู้ใช้หากมีการล็อกอิน */}
     </div>
   );
 }

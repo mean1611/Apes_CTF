@@ -6,8 +6,8 @@ import swal from 'sweetalert2';
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const dispatch = useDispatch();
 
+  
   useEffect(() => {
     const userdata = localStorage.getItem("user");
     if (userdata) {
@@ -34,7 +34,7 @@ function Login() {
         const user = await response.json(); // แปลงข้อมูลที่ได้รับจาก API เป็น JSON
 
         localStorage.setItem("user", JSON.stringify(user.data)); // เก็บข้อมูลผู้ใช้ไว้ใน localStorage
-        //dispatch(setAccount(user.data)); // ตั้งค่าสถานะผู้ใช้ใน Redux store
+        window.location.href = "/profile";
         swal.fire({
           icon: 'success',
           title: 'เข้าสู่ระบบสำเร็จ',

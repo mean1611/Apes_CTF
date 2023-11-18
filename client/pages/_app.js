@@ -1,7 +1,6 @@
 import '../styles/globals.css'; // นำเข้า CSS ที่คุณใช้ทั่วไป
 import Head from 'next/head';
 import { Provider } from 'react-redux'; // เพิ่มนี้
-import store from '../store/store'; // เปลี่ยนเส้นทางเป็นเส้นทางที่ถูกต้อง
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -21,9 +20,7 @@ function MyApp({ Component, pageProps }) {
           rel="stylesheet"
         ></link>
       </Head>
-      <Provider store={store}> {/* เพิ่ม Provider ที่ครอบ Component */}
         <Component {...pageProps} />
-      </Provider>
     </>
   );
 }

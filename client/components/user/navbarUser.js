@@ -55,11 +55,16 @@ function  Navbaruser() {
           </label>
           <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2  bg-base-100 rounded-box w-52">
             <li>
-              <a className="justify-between">
+              <a href="/profile" className="justify-between">
                 Profile
               </a>
             </li>
-            <li><a>Logout</a></li>
+            <li><a onClick={() => {
+          if (typeof window !== 'undefined') {
+            localStorage.removeItem("user");
+            window.location.href = "/";
+          }
+        }}>Logout</a></li>
           </ul>
         </div>
       </nav>
