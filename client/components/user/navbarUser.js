@@ -36,7 +36,7 @@ function  Navbaruser() {
           </span>      
           </a>
 
-          <a className="btn btn-ghost" href="/userreport">
+          <a className="btn btn-ghost" href="/report">
           <img
             src="/images/userreport.png"
             style={{ width: '50px', height: '40px' }} // กำหนดความกว้างและความสูง

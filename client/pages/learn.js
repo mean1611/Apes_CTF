@@ -1,25 +1,24 @@
 import React, { useEffect, useState } from "react";
+import Navbaruser from "../components/user/navbarUser.js";
+import Navbaradmin from '@/components/admin/navbarAdmin.js';
 import Navbar from "../components/home/navbar.js";
 import Menulearn from "@/components/home/menu-learn.js";
 
 function index() {
-  const [message, setMessage] = useState("Loading")
+  const [userdata, setUserdata] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/home").then(
-      response => response.json()
-    ).then(
-      data => {
-        console.log(data)
-        setMessage(data.message)
-      }
-    )
-    
-  }, [])
+    const storedData = JSON.parse(localStorage.getItem("user"));
+    if (storedData) {
+      setUserdata(storedData);
+    }
+  }, []);
 
   return (
     <div>
-        <Navbar/>
+        {userdata && userdata.user_role_id === 1 && <Navbaradmin />}
+        {userdata && userdata.user_role_id === 2 && <Navbaruser />}
+        {!userdata && <Navbar />}
         <div className="banner-learn">
             <div class="learn-column">
                 <div className="learn-banner-text">

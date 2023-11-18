@@ -1,38 +1,35 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
-import Swal from "sweetalert2";
 import Navbaradmin from "../components/admin/navbarAdmin";
-import QuestionManagementcom from "../components/admin/questionmanagecom";
-import Profileadmin from "../components/admin/profileadmin";
+import QuestionManagecom from "../components/admin/questionmanagecom";
 import Footer from "../components/home/footer";
 
-function index() {
-  const [message, setMessage] = useState("Loading")
+function Index() {
+  const [userData, setUserData] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/home").then(
-      response => response.json()
-    ).then(
-      data => {
-        console.log(data)
-        setMessage(data.message)
-      }
-    )
-    
-  }, [])
+    const storedData = localStorage.getItem("user");
+    const parsedData = JSON.parse(storedData);
+    if (parsedData && parsedData.user_role_id === 1) {
+      setUserData(parsedData);
+    } else {
+      window.location.href = "/"
+      console.log("Permission denied!");
+    }
+  }, []);
 
   return (
-    <div className="" >
-      <Navbaradmin  />
-      <div className="userreport  ">
-       <div className="justify">
-        <QuestionManagementcom />
+    <div>
+      {userData && userData.user_role_id === 1 && <Navbaradmin />}
+      {userData && userData.user_role_id === 1 && (
+      <div className="userreport ">
+        <div className="justify">
+          <QuestionManagecom />
         </div>
       </div>
-      <Footer/>
+      )}
+      <Footer />
     </div>
-    
   );
 }
 
-export default index;
+export default Index;

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux"; // เพิ่มการนำเข้านี้
+import Navbaruser from "../components/user/navbarUser.js";
+import Navbaradmin from '@/components/admin/navbarAdmin.js';
 import Navbar from "../components/home/navbar.js";
 import Banner from "../components/home/Banner.js";
 import Bodywhatisctf from "../components/home/bodywhatisctf.js";
@@ -8,24 +9,21 @@ import Bodyjob from "../components/home/bodyjob.js";
 import Footer from "../components/home/footer.js";
 import Getstart from "../components/home/getstart.js";
 
-function index() {
-  const [message, setMessage] = useState("Loading");
-  
+function Index() {
+  const [userdata, setUserdata] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/home").then(
-      response => response.json()
-    ).then(
-      data => {
-        console.log(data)
-        setMessage(data.message)
-      }
-    )
-  }, [])
+    const storedData = JSON.parse(localStorage.getItem("user"));
+    if (storedData) {
+      setUserdata(storedData);
+    }
+  }, []);
 
   return (
     <div>
-      <Navbar />
+      {userdata && userdata.user_role_id === 1 && <Navbaradmin />}
+      {userdata && userdata.user_role_id === 2 && <Navbaruser />}
+      {!userdata && <Navbar />}
       <Banner />
       <Bodywhatisctf />
       <Bodyknowctf />
@@ -36,4 +34,4 @@ function index() {
   );
 }
 
-export default index;
+export default Index;
