@@ -1,20 +1,40 @@
-import { useSelector } from 'react-redux';
+'use client'
+import { useSelector } from 'react-redux'
+import { useEffect,useState } from 'react';
+
+
 
 function Profile() {
-  const user = useSelector(state => state.login.user);
+  const [userdata, setUserdata] = useState([]);
 
-  // แสดงค่า username ใน Console
-  console.log("Username from Redux store:", user && user.username);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      let userdata = localStorage.getItem("user");
+      setUserdata(JSON.parse(userdata));
+      console.log("Username from localStorage:", userdata);
+
+    }
+  }, []);
 
   return (
     <div>
       <h1>Profile Page</h1>
-      {user && (
+      {userdata && (
         <div>
-          <p>Username: {user.username}</p>
-          <p>Email: {user.email}</p>
+          <p>Username: {userdata.username}</p>
+          <p>Email: {userdata.email}</p>
           {/* Add other user information here */}
+          <button onClick={() => {
+          if (typeof window !== 'undefined') {
+            localStorage.removeItem("user");
+            window.location.href = "/";
+          }
+        }}>Logout</button>
         </div>
+
+
+
       )}
     </div>
   );

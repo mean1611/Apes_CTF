@@ -1,14 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useDispatch } from 'react-redux';
 import Navbar from "../components/home/navbar.js";
 import swal from 'sweetalert2';
-import { useDispatch } from 'react-redux';
-import { setLoggedInUser } from "../store/userSlice.js";
-
 
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    const userdata = localStorage.getItem("user");
+    if (userdata) {
+      window.location.href = "/profile";
+    }
+  }, []);
 
   const handleLogin = async () => {
     const data = {
@@ -28,7 +33,8 @@ function Login() {
       if (response.status === 200) {
         const user = await response.json(); // แปลงข้อมูลที่ได้รับจาก API เป็น JSON
 
-        dispatch(setLoggedInUser(user)); // ตั้งค่าสถานะผู้ใช้ใน Redux store
+        localStorage.setItem("user", JSON.stringify(user.data)); // เก็บข้อมูลผู้ใช้ไว้ใน localStorage
+        //dispatch(setAccount(user.data)); // ตั้งค่าสถานะผู้ใช้ใน Redux store
         swal.fire({
           icon: 'success',
           title: 'เข้าสู่ระบบสำเร็จ',
