@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux"; // เพิ่มการนำเข้านี้
 import Navbar from "../components/home/navbar.js";
 import Banner from "../components/home/Banner.js";
 import Bodywhatisctf from "../components/home/bodywhatisctf.js";
@@ -7,9 +8,9 @@ import Bodyjob from "../components/home/bodyjob.js";
 import Footer from "../components/home/footer.js";
 import Getstart from "../components/home/getstart.js";
 
-
 function index() {
-  const [message, setMessage] = useState("Loading")
+  const [message, setMessage] = useState("Loading");
+  
 
   useEffect(() => {
     fetch("http://localhost:3000/api/home").then(
@@ -20,22 +21,19 @@ function index() {
         setMessage(data.message)
       }
     )
-    
-  }, []) 
+  }, [])
 
   return (
     <div>
-      <Navbar  />
-      <Banner /> 
-      <Bodywhatisctf/> 
-      <Bodyknowctf/>
-      <Bodyjob/>
-      <Getstart/>
-      <Footer/>
+      <Navbar />
+      <Banner />
+      <Bodywhatisctf />
+      <Bodyknowctf />
+      <Bodyjob />
+      <Getstart />
+      <Footer />
     </div>
-    
   );
 }
 
 export default index;
-
