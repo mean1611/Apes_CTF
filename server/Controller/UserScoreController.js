@@ -52,7 +52,7 @@ export const createUserScore = async (req, res) => {
         },
       });
 
-      return res.status(201).json(newUserScore);
+      return res.status(200).json(newUserScore);
     }
   } catch (error) {
     return res.status(500).json({ error: "Error creating user score", message: error });
