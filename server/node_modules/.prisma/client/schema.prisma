@@ -52,3 +52,13 @@ model Question_category {
   question_category_id    Int      @id @default(autoincrement())
   question_category_name  String?
 }
+model User_score {
+  user_score_id           Int      @id @default(autoincrement())
+  user_id                 Int
+  completequestion_id     String[]
+  score                   Int
+  username                String
+  createdAt               DateTime @default(now())
+  updatedAt               DateTime?
+  deletedAt               DateTime?
+}
