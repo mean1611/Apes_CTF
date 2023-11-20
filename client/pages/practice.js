@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Navbaruser from "@/components/user/navbarUser.js";
+import axios from 'axios';
 import Categoryfilter from "../components/user/categoryFilter.js";
 import Swal from 'sweetalert2';
 
@@ -11,9 +12,29 @@ function index() {
   const [answer, setAnswer] = useState("");
   const [isAnswerCorrect, setIsAnswerCorrect] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState(null);
+  const [userdata, setUserdata] = useState(null);
+
+    useEffect(() => {
+    if (typeof window !== 'undefined') {
+      let userdata = localStorage.getItem("user");
+      setUserdata(JSON.parse(userdata));
+      console.log("Username from localStorage:", userdata);
+
+    }
+  }, []);
+  
+
 
   const handlePlayClick = (question) => {
+    let question_info = {
+      question_id: question.question_id,
+      score: question.score,
+    }
+  
+    console.log(question);
+    console.log("test info:",question_info)
     setCurrentQuestion(question);
+    
     setShowPopup(true);
   };
 
@@ -21,13 +42,33 @@ function index() {
     setIsHintVisible(!isHintVisible);
   };
 
-  const handleSubmit = () => {
+
+
+  const handleSubmit = async (question) => {
     if (answer === currentQuestion.answer) {
       Swal.fire({
         title: 'คำตอบถูกต้อง!',
         icon: 'success',
         confirmButtonText: 'ตกลง'
       });
+  
+      const question_info = {
+        completequestion_id: String(currentQuestion.question_id),
+        score: currentQuestion.score,
+        user_id: userdata.user_id,
+        username: userdata.username,
+      }
+      console.log("test info:",question_info)
+    
+      try {
+        const response = await axios.post("http://localhost:8080/api/solve", question_info);
+        console.log(response);
+  
+        const data = response;
+        console.log('Success:', data);
+      } catch (error) {
+        console.error('Error:', error);
+      }
     } else {
       Swal.fire({
         title: 'คำตอบไม่ถูกต้อง',
@@ -152,7 +193,7 @@ function index() {
             />
             <button
               className="submitbutton btn  text-base-100 row-start-6 col-start-3 col-end-4 mt-2 mb-2 "
-              onClick={handleSubmit}
+              onClick= {() => handleSubmit(questions)}
             >
               Submit
             </button>
