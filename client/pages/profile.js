@@ -1,5 +1,4 @@
 'use client'
-import { useSelector } from 'react-redux'
 import { useEffect,useState } from 'react';
 import Navbaruser from "../components/user/navbarUser.js";
 import Navbaradmin from '@/components/admin/navbarAdmin.js';

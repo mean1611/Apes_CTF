@@ -1,6 +1,5 @@
 import '../styles/globals.css'; // นำเข้า CSS ที่คุณใช้ทั่วไป
 import Head from 'next/head';
-import { Provider } from 'react-redux'; // เพิ่มนี้
 
 function MyApp({ Component, pageProps }) {
   return (
