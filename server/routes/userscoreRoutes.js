@@ -1,11 +1,12 @@
 import { Router } from "express";
-import { createUserScore,getUserScore } from "../Controller/UserScoreController.js";
+import { createUserScore,UserScore } from "../Controller/UserScoreController.js";
 
 
 
 const router = Router();
 
 router.post("/", createUserScore);
+router.get("/userscore/", UserScore);
 
 
 

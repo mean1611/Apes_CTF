@@ -61,3 +61,23 @@ export const createUserScore = async (req, res) => {
 
 
 
+export const UserScore = async (req, res) => {
+  try {
+    const { user_id } = req.body;
+
+    const userScore = await prisma.user_score.findFirst({
+      where: {
+        user_id: user_id,
+        
+      },
+      select: {
+        score: true,
+        username: true,
+      },
+    });
+    console.log("GuLnw_Score:",userScore.username,":",userScore.score)
+    return res.status(200).json(userScore);
+  } catch (error) {
+    return res.status(500).json({ error: "Error getting user score", message: error });
+  }
+}
