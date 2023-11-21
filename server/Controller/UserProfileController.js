@@ -10,6 +10,10 @@ export const searchUser = async (req, res) => {
     const user = await prisma.user.findUnique({
         where: {
             user_id: Number(userId)
+        },
+        select: {
+            password: true,
+
         }
     })
 
@@ -51,6 +55,8 @@ export const updateEmail = async (req, res) => {
 export const updatePassword = async (req, res) => {
     const userId = req.params.user_id;
     const {password} = req.body
+
+
 
     await prisma.user.update({
         where: {
