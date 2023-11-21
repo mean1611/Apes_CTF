@@ -13,7 +13,7 @@ export const searchUser = async (req, res) => {
         },
     });
 
-    if (user) {    //ส่งข้อมูลของ user กลับไปเข้า redux store
+    if (user) {
         return res.status(200).json({ 
             status: 200, 
             message: "เข้าสู่ระบบสำเร็จ",

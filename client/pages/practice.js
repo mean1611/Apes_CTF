@@ -12,17 +12,34 @@ function index() {
   const [answer, setAnswer] = useState("");
   const [isAnswerCorrect, setIsAnswerCorrect] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState(null);
-  const [userdata, setUserdata] = useState(null);
+  const [userdata, setUserdata] = useState([]);
+  const [userscore, setScore] = useState([]);
 
-    useEffect(() => {
+  useEffect(() => {
     if (typeof window !== 'undefined') {
-      let userdata = localStorage.getItem("user");
+      const userdata = localStorage.getItem("user");
       setUserdata(JSON.parse(userdata));
       console.log("Username from localStorage:", userdata);
-
     }
+
   }, []);
   
+
+  useEffect(() => {
+    
+    const fetchData = async () => {
+      try {
+        const result = await axios.get(`http://localhost:8080/api/solve/userscore/${userdata.user_id}`);
+        setScore(result.data);
+      } catch (error) {
+        console.error("Error fetching user score:", error);
+      }
+    };
+
+    if (userdata && userdata.user_id) {
+      fetchData();
+    }
+  }, [userdata]);
 
 
   const handlePlayClick = (question) => {
@@ -46,16 +63,12 @@ function index() {
 
   const handleSubmit = async (question) => {
     if (answer === currentQuestion.answer) {
-      Swal.fire({
-        title: 'คำตอบถูกต้อง!',
-        icon: 'success',
-        confirmButtonText: 'ตกลง'
-      });
+
   
       const question_info = {
         completequestion_id: String(currentQuestion.question_id),
         score: currentQuestion.score,
-        user_id: userdata.user_id,
+        user_id: String(userdata.user_id),
         username: userdata.username,
       }
       console.log("test info:",question_info)
@@ -66,7 +79,22 @@ function index() {
   
         const data = response;
         console.log('Success:', data);
+        if (response.status === 200){
+          Swal.fire({
+            title: 'คำตอบถูกต้อง!',
+            icon: 'success',
+            confirmButtonText: 'ตกลง'
+          });
+        }
+        else if (response.status === 201){
+          Swal.fire({
+            title: 'คำตอบซ้ำไอน้อง!',
+            icon: 'info',
+            confirmButtonText: 'ตกลง'
+          });
+        }
       } catch (error) {
+
         console.error('Error:', error);
       }
     } else {
@@ -126,6 +154,11 @@ function index() {
           <div className="practice-banner-text">
             <h1>Practice</h1>
             <p>เพราะความรู้เป็นสิ่งสำคัญ</p>
+            
+            <p>Score: {userscore.score}</p>
+            <p>Username: {userdata.username}</p>
+            <p>Email: {userdata.email}</p>
+            <p>id: {userdata.user_id}</p>
             <p>และไม่ยากอย่างที่คิด</p>
           </div>
         </div>

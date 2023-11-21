@@ -6,7 +6,7 @@ import { createUserScore,UserScore } from "../Controller/UserScoreController.js"
 const router = Router();
 
 router.post("/", createUserScore);
-router.get("/userscore/", UserScore);
+router.get("/userscore/:user_id", UserScore);
 
 
 
