@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { createUserScore } from "../Controller/UserScoreController.js";
+import { createUserScore,getUserScore } from "../Controller/UserScoreController.js";
 
 
 
