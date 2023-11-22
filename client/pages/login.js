@@ -6,7 +6,6 @@ function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  
   useEffect(() => {
     const userdata = localStorage.getItem("user");
     if (userdata) {
@@ -19,7 +18,7 @@ function Login() {
       username: username,
       password: password,
     };
-  
+
     try {
       const response = await fetch("http://localhost:8080/api/login", {
         method: "POST",
@@ -28,30 +27,35 @@ function Login() {
         },
         body: JSON.stringify(data),
       });
-  
-      if (response.status === 200) {
-        const user = await response.json(); // แปลงข้อมูลที่ได้รับจาก API เป็น JSON
 
-        localStorage.setItem("user", JSON.stringify(user.data)); // เก็บข้อมูลผู้ใช้ไว้ใน localStorage
+      if (response.status === 200) {
+        const user = await response.json();
+        localStorage.setItem("user", JSON.stringify(user.data));
         window.location.href = "/profile";
         swal.fire({
           icon: 'success',
-          title: 'เข้าสู่ระบบสำเร็จ',
+          title: 'Login successful',
         });
       } else if (response.status === 401) {
         swal.fire({
           icon: 'error',
-          title: 'ข้อผิดพลาด',
-          text: 'ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง',
+          title: 'Error',
+          text: 'Username or password is incorrect.',
         });
       } else {
         swal.fire({
           icon: 'error',
-          title: 'เกิดข้อผิดพลาดในการเชื่อมต่อ API',
+          title: 'An error occurred connecting to the API.',
         });
       }
     } catch (error) {
       console.error("API Error", error);
+    }
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handleLogin();
     }
   };
 
@@ -97,6 +101,7 @@ function Login() {
                   className="input input-bordered"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
+                  onKeyPress={handleKeyPress}
                 />
               </div>
               <div className="form-control mt-6">

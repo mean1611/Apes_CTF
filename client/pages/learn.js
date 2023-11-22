@@ -19,7 +19,7 @@ function index() {
         {userdata && userdata.user_role_id === 1 && <Navbaradmin />}
         {userdata && userdata.user_role_id === 2 && <Navbaruser />}
         {!userdata && <Navbar />}
-        <div className="banner-learn">
+        <div className="banner-practice">
             <div class="learn-column">
                 <div className="learn-banner-text">
                     <h1>Learn</h1>

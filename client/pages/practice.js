@@ -3,6 +3,7 @@ import Navbaruser from "@/components/user/navbarUser.js";
 import axios from 'axios';
 import Categoryfilter from "../components/user/categoryFilter.js";
 import Swal from 'sweetalert2';
+import Profileuser from '../components/user/profileuser';
 
 function index() {
   const [questions, setQuestions] = useState([]);
@@ -68,7 +69,7 @@ function index() {
       const question_info = {
         completequestion_id: String(currentQuestion.question_id),
         score: currentQuestion.score,
-        user_id: String(userdata.user_id),
+        user_id: userdata.user_id,
         username: userdata.username,
       }
       console.log("test info:",question_info)
@@ -81,17 +82,21 @@ function index() {
         console.log('Success:', data);
         if (response.status === 200){
           Swal.fire({
-            title: 'คำตอบถูกต้อง!',
+            title: 'Answer is correct!',
             icon: 'success',
-            confirmButtonText: 'ตกลง'
+
           });
+          setTimeout(function(){
+            window.location.reload();
+         }, 1500);
         }
         else if (response.status === 201){
           Swal.fire({
-            title: 'คำตอบซ้ำไอน้อง!',
+            title: 'You have solved this challenge correctly again.',
             icon: 'info',
             confirmButtonText: 'ตกลง'
           });
+          
         }
       } catch (error) {
 
@@ -99,7 +104,7 @@ function index() {
       }
     } else {
       Swal.fire({
-        title: 'คำตอบไม่ถูกต้อง',
+        title: 'The answer is incorrect.',
         icon: 'error',
         confirmButtonText: 'ตกลง'
       });
@@ -155,10 +160,10 @@ function index() {
             <h1>Practice</h1>
             <p>เพราะความรู้เป็นสิ่งสำคัญ</p>
             
-            <p>Score: {userscore.score}</p>
+            {/*<p>Score: {userscore.score}</p>
             <p>Username: {userdata.username}</p>
             <p>Email: {userdata.email}</p>
-            <p>id: {userdata.user_id}</p>
+            <p>id: {userdata.user_id}</p>*/}
             <p>และไม่ยากอย่างที่คิด</p>
           </div>
         </div>
@@ -170,34 +175,44 @@ function index() {
           />
         </div>
       </div>
-      <div className="learn-body grid grid-cols-4 bg-primary text-base-100">
-        <div className="col-start-1 col-end-2">
+      <div className="learn-body grid grid-cols-1 lg:grid-cols-5 bg-primary text-base-100">
+        <div className="col-start-1 col-end-2 lg:col-start-1 lg:col-end-2">
           <Categoryfilter onSelectCategory={setSelectedCategory} />
         </div>
-        <div className=" card-container place-items-center mt-5 ">
+        <div className="card-container place-items-center mt-5 col-start-1 lg:col-start-2 lg:col-end-6">
+
+          <div className="card row-start-1 col-start-1 col-span-3 ">  
+          <div className="rounded-lg bg-green-500 btn-active flex btn-lg" data-tip="Sum score">
+            <img className="mt-2 mr-2" src="/images/sumscore.png" style={{ width: '50px', height: '50px' }} />
+            <span style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}></span>
+            <p className="text-5xl	text-base-100 mt-2">Your score: {userscore.score}</p>
+          </div>
+          </div>
+
           {questions.map((question) => (
-            <div key={question.question_id} className="card-question card w-96   mb-10 mr-5">
+            <div key={question.question_id} className="card-question card w-full lg:w-96 mb-10 lg:mb-0 lg:mr-5">
               <div className="card-body w-full">
-                <h2 className="card-title">
-                  <span className="text-black mt-12">{question.question_title}</span>
-                </h2>
-                <p className="text-black">Score:{question.score}</p>
-                <div className="card-actions justify-between">
-                <div className="badge badge-outline text-black">
-                  {getCategoryName(question.question_category_id)}
-                </div>
-                  <button
-                    className="btn btn-primary mb-6"
-                    onClick={() => handlePlayClick(question)}
-                  >
-                    Play
-                  </button>
-                </div>
-              </div>
+                      <h2 className="card-title">
+                        <span className="text-black mt-12">{question.question_title}</span>
+                      </h2>
+                      <p className="text-black">Score:{question.score}</p>
+                      <div className="card-actions justify-between">
+                      <div className="badge badge-outline text-black">
+                        {getCategoryName(question.question_category_id)}
+                      </div>
+                        <button
+                          className="btn btn-primary mb-6"
+                          onClick={() => handlePlayClick(question)}
+                        >
+                          Play
+                        </button>
+                      </div>
+                    </div>
             </div>
           ))}
         </div>
       </div>
+
       {showPopup && currentQuestion && (
         <div className="modal modal-open">
           <div className="modal-box  bg-primary-content">
@@ -258,6 +273,7 @@ function index() {
         </div>
       </div>
     )}
+    
     </div>
   );
 }

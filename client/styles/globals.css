@@ -297,16 +297,37 @@
 
 
 .banner-learn {
- background-color: rgb(143, 142, 155);
-  background-size: 100% 100%; 
+  background-image: url("/images/Matrix.jpg");
+  background-color: rgb(143, 142, 155);
+  background-size: 100% 100% ; 
   background-repeat: no-repeat; 
   margin-top: 3% ;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 20px;
-  height: 350px;
+  height: 470px;
 }
+
+.body-profile {
+  background-size: 300px 100px; 
+  background-repeat: no-repeat; 
+  display: flex;
+  flex-direction: column;  /* กำหนดให้เรียงลงมาเป็นคอลัมน์ */
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  font-family: 'Goldman', cursive;
+}
+
+/* ตัวอย่างการกำหนดคุณสมบัติสี */
+.col-1 {
+  background-color: #f0f0f0;  /* เปลี่ยนสีตามที่คุณต้องการ */
+  width: 100%;  /* กำหนดความกว้างเต็มหน้าจอ */
+  padding: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);  /* เพิ่มเงา */
+}
+
 
 .menu-learn{
   background-size: 100% 100%; 
@@ -394,10 +415,7 @@
 }
 
 
-.profilecard{
-  margin-top: 25%;
-  margin-left: 10%;
-}
+
 
 .profilecard p{
   font-size: 17px;
@@ -522,6 +540,7 @@
   grid-template-columns: repeat(3, 1fr); /* 3 columns with equal width */
   gap: 16px; /* ระยะห่างระหว่าง columns */
   font-family: 'Goldman', cursive;
+  background-size: 100% 100%; 
   
 }
 
