@@ -69,7 +69,7 @@ function index() {
       const question_info = {
         completequestion_id: String(currentQuestion.question_id),
         score: currentQuestion.score,
-        user_id: String(userdata.user_id),
+        user_id: userdata.user_id,
         username: userdata.username,
       }
       console.log("test info:",question_info)
@@ -82,17 +82,21 @@ function index() {
         console.log('Success:', data);
         if (response.status === 200){
           Swal.fire({
-            title: 'คำตอบถูกต้อง!',
+            title: 'Answer is correct!',
             icon: 'success',
-            confirmButtonText: 'ตกลง'
+
           });
+          setTimeout(function(){
+            window.location.reload();
+         }, 1500);
         }
         else if (response.status === 201){
           Swal.fire({
-            title: 'คำตอบซ้ำไอน้อง!',
+            title: 'You have solved this challenge correctly again.',
             icon: 'info',
             confirmButtonText: 'ตกลง'
           });
+          
         }
       } catch (error) {
 
@@ -100,7 +104,7 @@ function index() {
       }
     } else {
       Swal.fire({
-        title: 'คำตอบไม่ถูกต้อง',
+        title: 'The answer is incorrect.',
         icon: 'error',
         confirmButtonText: 'ตกลง'
       });

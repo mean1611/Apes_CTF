@@ -34,18 +34,18 @@ function Login() {
         window.location.href = "/profile";
         swal.fire({
           icon: 'success',
-          title: 'เข้าสู่ระบบสำเร็จ',
+          title: 'Login successful',
         });
       } else if (response.status === 401) {
         swal.fire({
           icon: 'error',
-          title: 'ข้อผิดพลาด',
-          text: 'ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง',
+          title: 'Error',
+          text: 'Username or password is incorrect.',
         });
       } else {
         swal.fire({
           icon: 'error',
-          title: 'เกิดข้อผิดพลาดในการเชื่อมต่อ API',
+          title: 'An error occurred connecting to the API.',
         });
       }
     } catch (error) {

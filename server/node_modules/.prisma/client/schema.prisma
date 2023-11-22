@@ -54,7 +54,7 @@ model Question_category {
 }
 model User_score {
   user_score_id           Int      @id @default(autoincrement())
-  user_id                 String
+  user_id                 Int
   completequestion_id     String[]
   score                   Int
   username                String

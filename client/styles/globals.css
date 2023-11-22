@@ -297,8 +297,9 @@
 
 
 .banner-learn {
+  background-image: url("/images/Matrix.jpg");
   background-color: rgb(143, 142, 155);
-  background-size: 300px 100px ; 
+  background-size: 100% 100% ; 
   background-repeat: no-repeat; 
   margin-top: 3% ;
   display: flex;
