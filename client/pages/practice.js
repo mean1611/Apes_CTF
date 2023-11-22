@@ -3,7 +3,7 @@ import Navbaruser from "@/components/user/navbarUser.js";
 import axios from 'axios';
 import Categoryfilter from "../components/user/categoryFilter.js";
 import Swal from 'sweetalert2';
-import Profileuser from '../components/user/profileuser';
+// import Profileuser from '../components/user/profileuser';
 
 function index() {
   const [questions, setQuestions] = useState([]);
@@ -25,7 +25,6 @@ function index() {
 
   }, []);
   
-
   useEffect(() => {
     
     const fetchData = async () => {
@@ -41,7 +40,6 @@ function index() {
       fetchData();
     }
   }, [userdata]);
-
 
   const handlePlayClick = (question) => {
     let question_info = {
@@ -60,16 +58,13 @@ function index() {
     setIsHintVisible(!isHintVisible);
   };
 
-
-
   const handleSubmit = async (question) => {
     if (answer === currentQuestion.answer) {
 
-  
       const question_info = {
         completequestion_id: String(currentQuestion.question_id),
         score: currentQuestion.score,
-        user_id: userdata.user_id,
+        user_id: String(userdata.user_id),
         username: userdata.username,
       }
       console.log("test info:",question_info)
@@ -159,11 +154,6 @@ function index() {
           <div className="practice-banner-text">
             <h1>Practice</h1>
             <p>เพราะความรู้เป็นสิ่งสำคัญ</p>
-            
-            {/*<p>Score: {userscore.score}</p>
-            <p>Username: {userdata.username}</p>
-            <p>Email: {userdata.email}</p>
-            <p>id: {userdata.user_id}</p>*/}
             <p>และไม่ยากอย่างที่คิด</p>
           </div>
         </div>
