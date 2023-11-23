@@ -38,11 +38,11 @@ function  Navbaruser() {
 
           <a className="btn btn-ghost" href="/report">
           <img
-            src="/images/userreport.png"
+            src="/images/data-loss.png"
             style={{ width: '50px', height: '40px' }} // กำหนดความกว้างและความสูง
             />  
           <span>
-            <span style={{ display: 'block',fontSize: '20px',fontWeight: 'bold'  }}>Report</span>
+            <span style={{ display: 'block',fontSize: '20px',fontWeight: 'bold'  }}>Bug Report</span>
           </span>      
           </a>
         </div>

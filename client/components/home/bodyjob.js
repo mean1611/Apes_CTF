@@ -3,7 +3,7 @@ import React from "react";
 function Bodyjob() {
   return (
     <div className="bodyjob  ">
-      <h1>อาชีพสายงาน Cybersecurity</h1>
+      <h1>อาชีพสายงาน Cybersecurity ที่น่าสนใจ</h1>
       <div className="bodyjob justify-center  ">
         <div className="bodyjob-text">
           <h1>Penetration Tester — </h1>
