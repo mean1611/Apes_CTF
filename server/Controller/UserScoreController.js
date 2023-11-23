@@ -59,11 +59,9 @@ export const createUserScore = async (req, res) => {
   }
 };
 
-
-
 export const UserScore = async (req, res) => {
   try {
-    const { user_id } = req.params; // ดึงค่า user_id จาก path
+    const {user_id}  = req.params; // ดึงค่า user_id จาก path
 
     const userScore = await prisma.user_score.findFirst({
       where: {

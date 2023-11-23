@@ -45,7 +45,7 @@ function index() {
       {/* row 3 */}
       <tr>
         <th>3</th>
-        <td>Brice Swyre</td>
+        <td>APES</td>
         <td>Tax Accountant</td>
         <td>Red</td>
       </tr>
