@@ -52,12 +52,32 @@ function Bodyjob() {
       <div className="bodyjob ">
         <div className="bodyjobh2 grid grid-cols-3 grid-rows-5">
         <h1 className=" bodyjobh2 text-base-100 col-span-3 row-start-1" >เว็บแหล่งการเรียนรู้อื่นๆที่เกี่ยวกับ Cybersecurity & CTF</h1>
-        <img src="/images/thm.png "  className="col-start-1 row-start-2 w-20  justify-self-end rounded-lg"/>
-        <img src="/images/pico.png "  className="col-start-2 row-start-2 w-20  justify-self-center rounded-lg"/>
-        <img src="/images/rootme.png "  className="col-start-3 row-start-2  w-20 justify-self-start rounded-lg"/>
-        <p className="text-center col-start-2 row-start-3"><a className="text-base-100 " href="https://tryhackme.com/" >https://tryhackme.com/</a></p>
-        <p className="text-center text-base-100 col-start-2 row-start-4"><a className="" href="https://picoctf.org/" >https://picoctf.org/</a></p>
-        <p className="text-center text-base-100 col-start-2 row-start-5"><a className="" href="https://www.root-me.org/?lang=en" >https://www.root-me.org/</a></p>
+
+        <img src="/images/thm.png "  className=" w-16  justify-self-end rounded-lg col-start-1 row-start-2 mr-2"/>
+        <p className="text-center text-base-100 col-start-2 row-start-2">
+          <a className="" href="https://tryhackme.com/" target="_blank" rel="noopener noreferrer">
+            https://tryhackme.com/
+          </a>
+        </p>
+
+        
+        <img src="/images/pico.png "  className=" w-16  justify-self-end rounded-lg col-start-1 row-start-3 mr-2"/>
+        <p className="text-center text-base-100 col-start-2 row-start-3">
+          <a className="" href="https://picoctf.org/" target="_blank" rel="noopener noreferrer">
+            https://picoctf.org/
+          </a>
+        </p>
+
+        
+        <img src="/images/rootme.png "  className=" w-16 justify-self-end rounded-lg col-start-1 row-start-4 mr-2"/>
+        <p className="text-center text-base-100 col-start-2 row-start-4">
+          <a className="" href="https://www.root-me.org/?lang=en" target="_blank" rel="noopener noreferrer">
+            https://www.root-me.org/
+          </a>
+        </p>
+        
+        
+        
          
           </div>
       </div>

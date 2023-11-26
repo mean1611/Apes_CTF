@@ -135,7 +135,10 @@
   margin-bottom: 20px;
   width: 400px; 
   height: 400px; 
-  
+}
+
+.knowgood {
+  font-family: 'IBM Plex Sans Thai', sans-serif; 
 }
 
 .carousel {
@@ -357,6 +360,12 @@
 .learn-content  h2{
   font-size: 30px; 
   font-family: 'Goldman', cursive;
+  margin-top: 50px;
+}
+
+.learn-content  h3{
+  font-size: 30px; 
+  font-family: 'IBM Plex Sans Thai', sans-serif;
   margin-top: 50px;
 }
 
