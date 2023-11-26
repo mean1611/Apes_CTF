@@ -62,7 +62,6 @@
 .bodywhatisctf {
   background-size: 100% 100%; 
   background-repeat: no-repeat; 
-  margin-top: 3% ;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -147,12 +146,11 @@
  flex-direction: column;
  background-size: 100% 100%; 
  background-repeat: no-repeat; 
- margin-top: 3% ;
  display: flex;
  justify-content: center;
  align-items: center;
  padding: 20px;
- height: 1500px;
+ height: auto;
  column-count: 1;
 }
 
@@ -182,7 +180,7 @@
 .bodyjob-text h1 {
   font-size: 50px; 
   margin: 0;
-  font-family: 'IBM Plex Sans Thai', cursive;
+  font-family: 'Goldman', cursive;
   
 }
 
@@ -196,7 +194,6 @@
   flex-direction: column;
   background-size: 100% 100%; 
   background-repeat: no-repeat; 
-  margin-top: 3% ;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -214,7 +211,7 @@
 }
 
 .getstart-text h1 {
-  font-size: 50px; 
+  font-size: 30px; 
   margin: 0;
   font-family: 'IBM Plex Sans Thai', cursive;
   
@@ -283,10 +280,9 @@
 }
 
 .learn-image{
-  width: 150px;
-  height: 150px;
-
-  margin-top: 5%;
+  width: 75px;
+  height: 75px;
+  margin-top: 20px;
 }
 
 .learn-body  {
@@ -294,6 +290,7 @@
   font-size: 15px;
   
 }
+
 
 
 .banner-learn {
@@ -351,24 +348,22 @@
   height: 100%;
 }
 
-
-
 .learn-content  h1{
   font-size: 50px; 
-  font-family: 'Goldman', cursive;
-  margin-top: 2%;
+  font-family: 'IBM Plex Sans Thai', sans-serif;
+  margin-top: 60px;
 }
 
 .learn-content  h2{
-  font-size: 17px; 
-  font-family: 'IBM Plex Sans Thai', sans-serif;
-  margin-top: 2%;
+  font-size: 30px; 
+  font-family: 'Goldman', cursive;
+  margin-top: 50px;
 }
 
 .learn-content  p{
   font-size: 17px; 
   font-family: 'IBM Plex Sans Thai', sans-serif;
-  margin-top: 10px;
+  margin-top: 25px;
 }
 
 
@@ -394,6 +389,16 @@
   height: 500px;
 }
 
+.bodyjobh2 h1{
+  font-size: 50px; 
+  font-family: 'IBM Plex Sans Thai', sans-serif;
+
+}
+
+.bodyjob a {
+  font-size: 30px; 
+  font-family: 'Goldman', cursive;
+}
 
 .banner-practice {
   background-image: url("/images/Matrix.jpg");
