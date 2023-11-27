@@ -82,7 +82,7 @@ function SendReport() {
           onChange={(e) => setFormData({ ...formData, title: e.target.value })}
         />
         <label className="label">
-          <h2 className="label-text">Detail</h2>
+          <h2 className="label-text">Information</h2>
         </label>
         <textarea
           type="text"

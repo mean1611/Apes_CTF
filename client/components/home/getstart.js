@@ -11,10 +11,7 @@ function Getstart() {
         <a href="/learn" className="getstart-button flex justify-center w-full py-3 gap-2">
           <button className="btn btn-lg bg-green-400">Learn</button>
         </a>
-
         <a className="getstart-text flex justify-center w-full py-3 gap-2">OR</a>
-
-
         <a href="/practice " className="getstart-button flex justify-center w-full py-3 gap-2">
           <button className="getstart-btn btn btn-lg bg-primary">Practice</button>
         </a>
