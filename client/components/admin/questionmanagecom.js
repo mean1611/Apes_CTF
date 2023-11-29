@@ -342,11 +342,11 @@ function QuestionManagementcom() {
               className="input input-bordered w-full max-w-xs"
             >
               <option value="0">Select Category</option>
-              <option value="1">General Skills</option>
-              <option value="2">Cryptography</option>
-              <option value="3">Web Exploitation</option>
-              <option value="4">Forensics</option>
-              <option value="5">Reverse Engineering</option>
+              <option value="1">General Skills |  ID: 1</option>
+              <option value="2">Cryptography |  ID: 2</option>
+              <option value="3">Web Exploitation |  ID: 3</option>
+              <option value="4">Forensics |  ID: 4</option>
+              <option value="5">Reverse Engineering |  ID: 5</option>
             </select>
             
             </div>
