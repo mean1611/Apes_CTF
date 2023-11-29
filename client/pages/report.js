@@ -1,15 +1,21 @@
-import React, { useState } from "react";
-import Navbar from "../components/user/navbarUser";
+import React, { useState,useEffect } from "react";
+import Navbaruser from "@/components/user/navbarUser.js";
+import Navbar from "../components/home/navbar.js";
 import axios from "axios";
 import Swal from "sweetalert2";
 import SendReport from "@/components/user/sendReport";
 import Footer from "@/components/home/footer";
 
 function ReportPage() {
-  const [formData, setFormData] = useState({
-    title: "",
-    description: "",
-  });
+  const [userdata, setUserdata] = useState(null);
+
+  useEffect(() => {
+    const storedData = JSON.parse(localStorage.getItem("user"));
+    if (storedData) {
+      setUserdata(storedData);
+    }
+  }, []);
+  console .log(userdata)
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -63,7 +69,7 @@ function ReportPage() {
 
   return (
     <div>
-      <Navbar />
+      {userdata && userdata.user_role_id === 2 && <Navbaruser userData={userdata} />}
       <SendReport/>
       <Footer/>
     </div>

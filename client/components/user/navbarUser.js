@@ -1,6 +1,8 @@
 import React from "react";
 
-function  Navbaruser() {
+function Navbaruser(props) {
+  const { username, email, user_role_id } = props.userData;
+  console.log("Username from localStorage:", username);
 
     return (
         <nav className="navbar  bg-primary text-neutral-content fixed top-0 w-full z-10" >
@@ -46,6 +48,7 @@ function  Navbaruser() {
           </span>      
           </a>
         </div>
+        <h1>@{username}</h1>
         
         <div className="dropdown dropdown-end flew-none">
           <label tabIndex={0} className="btn btn-ghost btn-circle avatar">

@@ -47,13 +47,16 @@ function Navbaradmin() {
           </a>
 
         </div>
-        
+        <h1>Admin</h1>
         <div className="dropdown dropdown-end flew-none">
+          
           <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+            
             <div className="w-10 rounded-full">
               <img src="/images/profile.png" />
             </div>
           </label>
+          
           <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2  bg-base-100 rounded-box w-52">
             <li>
               <a href="/profile" className="justify-between">

@@ -18,7 +18,7 @@ function index() {
   return (
     <div>
         {userdata && userdata.user_role_id === 1 && <Navbaradmin />}
-        {userdata && userdata.user_role_id === 2 && <Navbaruser />}
+        {userdata && userdata.user_role_id === 2 && <Navbaruser userData={userdata} />}
         {!userdata && <Navbar />}
         <div className="banner-practice">
             <div class="learn-column">
