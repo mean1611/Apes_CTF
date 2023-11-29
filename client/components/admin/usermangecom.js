@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
-
+import Pagination from "@/function/Pagination";
 
 function usermangecom() {
   const [users, setUsers] = useState([]);
   const [selectedUser, setSelectedUser] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(10); // Show 10 items per page
 
   const getUser = async () => {
     let result = await axios.get('http://localhost:8080/api/user');
     setUsers(result.data.data.sort((a, b) => a.user_id - b.user_id));
-    console.log(result.data.data);
   };
 
   useEffect(() => {
@@ -18,7 +19,7 @@ function usermangecom() {
   }, []);
 
   const handleClickAdd = () => {
-    // TODO: เพิ่มผู้ใช้ใหม่
+    // TODO: Add new user
   };
 
   const handleClickEdit = (user) => {
@@ -33,9 +34,7 @@ function usermangecom() {
   const handleClickDelete = () => {
     const user_id = selectedUser?.user_id;
 
-    // ตรวจสอบว่า selectedUser มีค่าหรือไม่
     if (!user_id) {
-      // แสดงข้อความแจ้งเตือน
       Swal.fire('Please select a user to delete', '', 'warning');
       return;
     }
@@ -49,7 +48,6 @@ function usermangecom() {
       cancelButtonText: 'Cancel',
     }).then(async (result) => {
       if (result.isConfirmed) {
-        // ลบผู้ใช้จาก database
         const response = await axios.delete('http://localhost:8080/api/user/' + user_id);
         Swal.fire({
           title: "Success!",
@@ -58,10 +56,7 @@ function usermangecom() {
           confirmButtonText: "OK",
         });
         if (response.status === 200) {
-          // ลบข้อมูลออกจาก state
           setSelectedUser(null);
-
-          // อัปเดตรายการผู้ใช้หลังจากลบ
           setUsers(users.filter(user => user.user_id !== user_id));
         } else {
           Swal.fire('Error deleting user', '', 'error');
@@ -72,50 +67,52 @@ function usermangecom() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     const user_id = selectedUser?.user_id;
-  
-    // ตรวจสอบว่า selectedUser มีค่าหรือไม่
+
     if (!selectedUser) {
       Swal.fire('Please fill in all required fields', '', 'warning');
       return;
     }
-  
-    // ตรวจสอบว่า username และ password ไม่ว่าง
+
     if (!selectedUser.username || !selectedUser.password) {
       Swal.fire('Please fill in all required fields', '', 'error');
       return;
     }
-  
+
     const response = await axios.put('http://localhost:8080/api/user/' + user_id, {
       username: selectedUser.username,
       password: selectedUser.password,
     });
-  
-    // ตรวจสอบสถานะการตอบกลับ
+
     if (response.status === 200) {
       Swal.fire({
         icon: 'success',
         title: 'Success!',
         showConfirmButton: false,
         timer: 1500
-      })
-      // รีโหลดหน้า
+      });
       setTimeout(function(){
         window.location.reload();
-     }, 1500);
+      }, 1500);
     } else {
       alert('Error!');
     }
   };
-  
-  
+
+  // Get current users
+  const indexOfLastUser = currentPage * itemsPerPage;
+  const indexOfFirstUser = indexOfLastUser - itemsPerPage;
+  const currentUsers = users.slice(indexOfFirstUser, indexOfLastUser);
+
+  // Change page
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <div className="report-component card  bg-base-100 shadow-xl  ">
-      <div className="reporttop card  bg-primary  flex justify-center">
-            <h2 className="  text-base-100  ">USER</h2>                    
-       </div>
+    <div className="report-component card bg-base-100 shadow-xl">
+      <div className="reporttop card bg-primary flex justify-center">
+        <h2 className="text-base-100">USER</h2>
+      </div>
       <div className="overflow-x-auto">
         <table className="table table-zebra">
           {/* head */}
@@ -129,24 +126,27 @@ function usermangecom() {
           </thead>
           <tbody>
             {/* render users data */}
-            {users.length > 0 &&
-              users.map((user) => (
+            {currentUsers.length > 0 &&
+              currentUsers.map((user) => (
                 <tr key={user.user_id}>
                   <td>{user.user_id}</td>
                   <td>{user.username}</td>
                   <td>{user.email}</td>
                   <td>
                     <button className="btn btn-warning w-24" onClick={() => handleClickEdit(user)}>EDIT</button>
-                    
                   </td>
                 </tr>
               ))}
           </tbody>
         </table>
       </div>
-      <div className="card grid grid-rows-1 grid-cols-4 ">
-          
-          <form className="grid grid-cols-4 row-start-1 col-span-4" >
+<Pagination
+        itemsPerPage={itemsPerPage}
+        totalItems={users.length}
+        paginate={paginate}
+      />
+      <div className="card grid grid-rows-1 grid-cols-4">
+        <form className="grid grid-cols-4 row-start-1 col-span-4" >
           <div className="reporttop card row-start-1 col-span-4 flex justify-center ">
             <h2 className="card text-base-100 bg-primary">EDIT</h2>
           </div>
@@ -179,11 +179,12 @@ function usermangecom() {
             </div>
           
           </form>
-          <div className="flex  items-center grid grid-cols-3 row-start-2 col-start-2 col-span-3 mt-5 mb-2 gap-4">
-            <button className="btn btn-success" type="submit" onClick={handleSubmit}>SAVE</button>
-            <button className="btn btn-error" onClick={handleClickDelete}>DELETE</button>
-          </div>
-          </div>
+        <div className="flex items-center grid grid-cols-3 row-start-2 col-start-2 col-span-3 mt-5 mb-2 gap-4">
+          <button className="btn btn-success" type="submit" onClick={handleSubmit}>SAVE</button>
+          <button className="btn btn-error" onClick={handleClickDelete}>DELETE</button>
+        </div>
+      </div>
+      
     </div>
   );
 }

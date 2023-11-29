@@ -24,10 +24,11 @@ function Index() {
       <div className="userreport ">
         <div className="justify">
           <QuestionManagecom />
+          <Footer />
         </div>
       </div>
       )}
-      <Footer />
+
     </div>
   );
 }
