@@ -66,10 +66,8 @@ function SendReport() {
   };
 
   return (
-    <div className="report-component card  bg-base-100 shadow-xl  ">
-      <div className="reporttop   bg-base-100  flex justify-center">
-        <h2 className="  text-base-100  "></h2>
-      </div>
+    <div className="report-component card   shadow-xl  ">
+      
       <div className="report-bar card-body ">
         <label className="label">
           <h2 className="label-text ">Report</h2>
@@ -87,18 +85,19 @@ function SendReport() {
         <textarea
           type="text"
           placeholder="Detail"
-          className="report-detail  w-full h-full appearance-none block eounded-lg bg-base-100 border py-4 px-3 focus:outline-none   "
+          className="report-detail  w-full h-full appearance-none block eounded-lg bg-base-100 border py-4 px-3 focus:outline-none"
           value={formData.description}
           onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+          maxLength={255} // Set the maximum length
+          
         />
-        <div className="ml-auto">
-        <button className="btn  w-28 " onClick={handleClearFields}>
-          Clear
-        </button> 
-        <button className="btn bg-green-500 w-28 " onClick={handleSubmit}>
-          Submit
-        </button>
-        
+        <div className="m-auto">
+          <button className="btn bg-green-500 w-28 " onClick={handleSubmit}>
+            Submit
+          </button>
+          <button className="btn  w-28 ml-5" onClick={handleClearFields}>
+            Clear
+          </button> 
         </div>
       </div>
     </div>

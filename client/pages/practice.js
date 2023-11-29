@@ -205,7 +205,7 @@ function index() {
 
       {showPopup && currentQuestion && (
         <div className="modal modal-open">
-          <div className="modal-box  bg-primary-content">
+          <div className="modal-box w-11/12 max-w-4xl bg-primary-content">
           <div className=" question-content grid grid-rows-9 grid-cols-3">
             <h3 className="font-bold text-lg  text-primary  row-start-1 col-start-1 col-span-2">
               {currentQuestion.question_title}
@@ -213,7 +213,7 @@ function index() {
             <p className="text-primary text-primary row-start-2 col-start-1 col-end-3 mt-3">
               {getCategoryName(currentQuestion.question_category_id)}
             </p>
-            <p className="text-primary text-primary row-start-2 col-start-3 mt-3">
+            <p className="text-primary text-primary row-start-2 col-start-3 mt-3 text-right ">
               Point : {currentQuestion.score}
             </p>
             <div className="questionunderline card  row-start-3 col-start-1 col-end-4"></div>
@@ -224,26 +224,26 @@ function index() {
             <input
               type="text"
               placeholder="APESCTF{FLAG}"
-              className="input input-bordered place-items-center mt-2 mb-2 3 text-black row-start-6 col-start-1 col-end-3"
+              className="input input-bordered place-items-center mt-2 3 text-black row-start-8 col-start-1 col-end-3"
               value={answer}
               onChange={(e) => setAnswer(e.target.value)}
               onKeyPress={handleKeyPress}
             />
             <button
-              className="submitbutton btn  text-base-100 row-start-6 col-start-3 col-end-4 mt-2 mb-2 "
+              className="submitbutton btn  text-base-100 row-start-8 col-start-3 col-end-4 mt-2  ml-2 "
               onClick= {() => handleSubmit(questions)}
             >
               Submit
-            </button>
+      </button>
             <div className="questionunderline card  row-start-7 col-start-1 col-end-4"></div>
             <button
-              className="hintbutton btn  text-base-100 mt-2 row-start-8 col-start-1 col-end-2"
+              className="hintbutton btn  text-base-100 mt-2 row-start-6 col-start-1 col-end-2 mb-2"
               onClick={handleHintClick}
             >
               Hint
             </button>
             {isHintVisible && (
-              <p className="hint-text text-black row-start-8 col-start-2 col-end-4 ml-2 mt-2 mb-2 ">
+              <p className="hint-text text-black row-start-6 col-start-2 col-end-4 ml-2 mt-2 mb-2 ">
                 Hint: {currentQuestion.hint}
               </p>
             )}
