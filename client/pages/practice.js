@@ -148,7 +148,7 @@ function index() {
 
   return (
     <div className="bg-primary">
-      <Navbaruser/>
+      <Navbaruser userData={userdata} />
       <div className="banner-practice">
         <div className="practice-column">
           <div className="practice-banner-text">

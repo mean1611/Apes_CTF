@@ -3,6 +3,7 @@ import React from "react";
 function Profileuser({ userData , UserScore}) {
     
     const { username, email, user_role_id } = userData;
+    
 
   return (
     <div className="profilecard card w-96 bg-base-100 shadow-xl">
