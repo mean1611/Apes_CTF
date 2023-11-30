@@ -191,7 +191,7 @@ function index() {
             <div key={question.question_id} className="card-question card w-full lg:w-96 mb-10 lg:mb-0 lg:mr-5">
               <div className="card-body w-full">
                       <h2 className="card-title">
-                        <span className="text-black mt-12">{question.question_title}</span>
+                        <span className="text-black mt-14">{question.question_title}</span>
                       </h2>
                       <p className="text-black">Score:{question.score}</p>
                       <div className="card-actions justify-between">
