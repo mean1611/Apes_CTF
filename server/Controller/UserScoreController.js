@@ -70,9 +70,11 @@ export const UserScore = async (req, res) => {
       select: {
         score: true,
         username: true,
+        completequestion_id: true,
       },
     });
     console.log("GuLnw_Score:", userScore.username, ":", userScore.score);
+    console.log("GuLnw_CompleteQuestion:", userScore);
     return res.status(200).json(userScore);
   } catch (error) {
     return res.status(500).json({ error: "Error getting user score", message: error });
