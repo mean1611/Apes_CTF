@@ -15,6 +15,12 @@ function index() {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [userdata, setUserdata] = useState([]);
   const [userscore, setScore] = useState([]);
+  const questionIdToCheck = currentQuestion ? String(currentQuestion.question_id) : ''; // กำหนดค่า questionIdToCheck ให้เป็น String ของ currentQuestion.question_id หรือให้ว่างไว้หากไม่มี currentQuestion
+
+  const hasQuestionId = userscore && userscore.completequestion_id && userscore.completequestion_id.includes(questionIdToCheck);
+  
+  console.log(hasQuestionId);
+
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -145,6 +151,7 @@ function index() {
         return "Unknown";
     }
   }
+  console.log("Test User completequestion:",userscore.completequestion_id)
 
   return (
     console.log("APESCTF{c0ns0l3.l0g_1s_y0ur_fr13nd}"),
@@ -189,7 +196,14 @@ function index() {
                       <p className="text-black">Score:{question.score}</p>
                       <div className="card-actions justify-between">
                       <div className="badge badge-outline text-black">
-                        {getCategoryName(question.question_category_id)}
+                      {getCategoryName(question.question_category_id)}
+                        </div>
+                        {/* แสดงข้อความตามการทำแต่ละข้อ */}
+                        {userscore && userscore.completequestion_id && userscore.completequestion_id.includes(String(question.question_id)) ? (
+                          <span className="text-green-500">Completed</span>
+                        ) : (
+                          <span className="text-red-500">Not Completed</span>
+                        )}
                       </div>
                         <button
                           className="btn btn-primary mb-6"
@@ -199,7 +213,6 @@ function index() {
                         </button>
                       </div>
                     </div>
-            </div>
           ))}
         </div>
       </div>
