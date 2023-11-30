@@ -147,6 +147,7 @@ function index() {
   }
 
   return (
+    console.log("APESCTF{c0ns0l3.l0g_1s_y0ur_fr13nd}"),
     <div className="bg-primary">
       <Navbaruser userData={userdata} />
       <div className="banner-practice">

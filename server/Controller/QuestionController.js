@@ -73,7 +73,7 @@ export const updateQuestion = async (req, res) => {
             question_desc: question_desc,
             answer: answer,
             hint: hint,
-            score: score,
+            score: Number(score),
             question_category_id: updatedCategoryID
         }
     });
